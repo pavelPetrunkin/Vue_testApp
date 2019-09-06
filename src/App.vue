@@ -9,10 +9,13 @@
 </template>
 
 <script>
+
+  import ToDoList from "./components/ToDoList";
+
 export default {
   name: 'App',
     components: {
-        TodoList,
+        ToDoList,
     },
     data() {
         return {
@@ -25,7 +28,6 @@ export default {
                 isEditing: false,
                 checked: true,
             }],
-            idList: [],
             filters: {
                 showAll: true,
                 showChecked: false,
@@ -40,9 +42,7 @@ export default {
     methods: {
         createTodo(newTodo) {
             this.todos.unshift(newTodo);
-            this.idList.unshift(newTodo.id)
         },
-        deleteTodo
     },
 
 }

@@ -45,9 +45,9 @@
   </div>
 
   <ul id="list">
-    <li v-for="(todo,index) in todos" id={{todo.id}}  class={{todo.item}} >
-      <input type="checkbox" id="checkItem" class="check-item"  v-model="todo.checked" v-show="">
-      <p contenteditable={{todo.editing}} class="editing">{{todo.name}}</p>
+    <li v-for="(todo,index) in todos" class={{todo.item}} v-show="todos.blocked">
+      <input @click="checkTodo(index)" type="checkbox" id="checkItem" class="check-item"  v-model="todo.checked" >
+      <p @click="editTodo(index)" contenteditable={{todo.editing}} class="editing">{{todo.name}}</p>
       <a href='#' @click="deleteTodo(index)" class='close' aria-hidden='true'>&times;</a>
     </li>
   </ul>
@@ -64,14 +64,14 @@
                     name: 'Todo A',
                     isEditing: false,
                     checked: false,
-                    item: 'item' + (checked ? 'checked' : ''),
+                    blocked: false,
+                    item: 'item' + (checked ? ' checked' : ''),
                 }, {
                     name: 'Todo B',
                     isEditing: false,
                     checked: true,
                 }],
                 filters: {
-                    activeFilter: 'showAll',
                     showAll: true,
                     showChecked: false,
                     showUnchecked: false,
@@ -87,28 +87,39 @@
               this.todos.splice(todoIndex, 1);
             },
             showAll() {
-                this.showAll = !this.showAll;
-                this.showChecked = false;
-                this.showUnchecked = false;
+                this.filters.showAll = !this.showAll;
+                this.todos.forEach( (item,i) => this.todos[i].blocked = false);
+                this.filters.showChecked = false;
+                this.filters.showUnchecked = false;
             },
             showChecked() {
-                this.showChecked = !this.showChecked;
-                this.showAll = false;
-                this.showUnchecked = false;
+                this.filters.showChecked = !this.filters.showChecked;
+                this.todos.forEach( (item,i) => {
+                    if(this.todos[i].checked){
+                        this.todos[i].blocked = false
+                    }
+                });
+                this.filters.showAll = false;
+                this.filters.showUnchecked = false;
             },
             showUnchecked() {
-                this.showUnchecked = !this.showUnchecked;
-                this.showAll = false;
-                this.showChecked = false;
+                this.this.filters.showUnchecked = !this.filters.showUnchecked;
+                this.todos.forEach( (item,i) => {
+                    if(!this.todos[i].checked){
+                        this.todos[i].blocked = false
+                    }
+                });
+                this.filters.showAll = false;
+                this.filters.showChecked = false;
             },
-            checkTodo(todo) {
-                this.$emit('complete-todo', todo);
+            checkTodo(index) {
+                this.todos[index].checked = !this.todos[index].checked;
             },
-            editing() {
-                this.isEditing = !this.isEditing;
+            editTodo(index) {
+                this.todos[index].isEditing = !this.todos[index].isEditing;
             },
-            deleteTodo(todo) {
-                this.$emit('delete-todo', todo);
+            deleteTodo(index) {
+                this.todos.splice(index,1);
             },
         },
     };
