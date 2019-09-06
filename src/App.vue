@@ -23,20 +23,21 @@ export default {
                 name: 'Todo A',
                 isEditing: false,
                 checked: false,
+                blocked: false,
+                item: 'item' + (checked ? ' checked' : ''),
             }, {
                 name: 'Todo B',
                 isEditing: false,
                 checked: true,
             }],
-            filters: {
-                showAll: true,
-                showChecked: false,
-                showUnchecked: false,
-                },
+            filter: 'showAll',
             pagination: {
                 pageNumber: 1,
                 pageItems: 3,
-            }
+            },
+            editing: {
+                focusTodo: '',
+            },
         };
     },
     methods: {

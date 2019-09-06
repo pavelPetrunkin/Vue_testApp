@@ -51,7 +51,15 @@
       <a href='#' @click="deleteTodo(index)" class='close' aria-hidden='true'>&times;</a>
     </li>
   </ul>
+
   <div class="pagination">
+    <button v-for="(page,index) in (todos.length/pagination.pageItems)"
+            id='#pageNumber'
+            class="page-number"
+            value={{index+1}}
+            @click="changePage(index+1)">
+      {{index+1}}
+    </button>;
   </div>
 </template>
 
@@ -60,60 +68,41 @@
         props: ['todos','filters','pagination'],
         data() {
             return {
-                todos: [{
-                    name: 'Todo A',
-                    isEditing: false,
-                    checked: false,
-                    blocked: false,
-                    item: 'item' + (checked ? ' checked' : ''),
-                }, {
-                    name: 'Todo B',
-                    isEditing: false,
-                    checked: true,
-                }],
-                filters: {
-                    showAll: true,
-                    showChecked: false,
-                    showUnchecked: false,
-                },
-                editing: {
-                    focusTodo: '',
-                }
+                name: '',
+                isEditing: false,
+                checked: false,
+                blocked: false,
+                item: 'item',
             };
         },
         methods: {
-            deleteTodo(todo) {
-              const todoIndex = this.todos.indexOf(todo);
-              this.todos.splice(todoIndex, 1);
-            },
             showAll() {
-                this.filters.showAll = !this.showAll;
+                filter = 'showAll';
                 this.todos.forEach( (item,i) => this.todos[i].blocked = false);
-                this.filters.showChecked = false;
-                this.filters.showUnchecked = false;
             },
             showChecked() {
-                this.filters.showChecked = !this.filters.showChecked;
+                filter = 'showChecked';
                 this.todos.forEach( (item,i) => {
                     if(this.todos[i].checked){
                         this.todos[i].blocked = false
                     }
                 });
-                this.filters.showAll = false;
-                this.filters.showUnchecked = false;
+            },
+            changePage(index){
+                this.pagination.pageNumber = index;
             },
             showUnchecked() {
-                this.this.filters.showUnchecked = !this.filters.showUnchecked;
+                filter = 'showUnchecked';
                 this.todos.forEach( (item,i) => {
                     if(!this.todos[i].checked){
                         this.todos[i].blocked = false
                     }
                 });
-                this.filters.showAll = false;
-                this.filters.showChecked = false;
             },
             checkTodo(index) {
                 this.todos[index].checked = !this.todos[index].checked;
+            },
+            createTodo(){
             },
             editTodo(index) {
                 this.todos[index].isEditing = !this.todos[index].isEditing;
