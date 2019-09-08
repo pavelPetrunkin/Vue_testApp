@@ -1,117 +1,127 @@
 
 <template>
-  <div id="header-id" class="header">
-    <h2>My To Do List</h2>
+  <div>
+    <div id="header-id" class="header">
+      <h2>My To Do List</h2>
 
-    <div class="typer">
-      <input type="text" id="text-input"  v-model="todo.name" placeholder="New item..." name="task">
-      <button class="button-add" v-on:click="createItem()" id="addId">Add</button>
-    </div>
+      <div class="typer">
+        <input type="text" id="text-input"  v-model="todo.name" placeholder="New item..." name="task">
+        <button class="button-add" v-on:click="createItem()" id="addId">Add</button>
+      </div>
 
-    <div class="options">
-      <div class="filter-check">
-        <div class="check">
-          <div class="checkAll">
+      <div class="options">
+        <div class="filter-check">
+          <div class="check">
+            <div class="checkAll">
 
-            <input type="checkbox" class="input-checkAll" id="checkAll" name="Check/uncheck all">
-            <label style="margin:0;" for="checkAll">CheckAll</label>
+              <input type="checkbox" class="input-checkAll" id="checkAll" name="Check/uncheck all">
+              <label style="margin:0;" for="checkAll">CheckAll</label>
+            </div>
+            <button class="button-delete" v-on:click="deleteChecked()" id="deleteId">Delete checked</button>
           </div>
-          <button class="button-delete" v-on:click="deleteChecked()" id="deleteId">Delete checked</button>
+
+          <div class="filters">
+            <div class='showAll active-filter'>
+              <label v-on:click="filter.showAll" id="show-all" class='filter'>
+                <p>Show all</p>
+              </label>
+            </div>
+
+            <div class='showChecked'>
+              <label v-on:click="filter.showChecked" id="show-checked" class='filter'>
+                <p>Show Checked</p>
+              </label>
+            </div>
+
+            <div class='showUnchecked'>
+              <label v-on:click="filter.showUnchecked" id="show-unchecked"  class='filter'>
+                <p>Show Unchecked</p>
+              </label>
+            </div>
+          </div>
         </div>
 
-        <div class="filters">
-          <div class='showAll active-filter'>
-            <label id="show-all" class='filter'>
-              <p v-on:click="filters.showAll" >Show all</p>
-            </label>
-          </div>
-
-          <div class='showChecked'>
-            <label  id="show-checked" class='filter'>
-              <p>Show Checked</p>
-            </label>
-          </div>
-
-          <div class='showUnchecked'>
-            <label id="show-unchecked"  class='filter'>
-              <p>Show Unchecked</p>
-            </label>
-          </div>
-        </div>
       </div>
 
     </div>
 
-  </div>
+    <ul id="list">
+      <li v-for="(todo,index) in todos" :key="todo.id" class={{todo.item}} v-show="todos.blocked">
+        <input @click="checkTodo(index)" type="checkbox" id="checkItem" class="check-item"  v-model="todo.checked" >
+        <p @click="editTodo(index)" contenteditable={{todo.editing}} class="editing">{{todo.name}}</p>
+        <a href='#' @click="deleteTodo(index)" class='close' aria-hidden='true'>&times;</a>
+      </li>
+    </ul>
 
-  <ul id="list">
-    <li v-for="(todo,index) in todos" class={{todo.item}} v-show="todos.blocked">
-      <input @click="checkTodo(index)" type="checkbox" id="checkItem" class="check-item"  v-model="todo.checked" >
-      <p @click="editTodo(index)" contenteditable={{todo.editing}} class="editing">{{todo.name}}</p>
-      <a href='#' @click="deleteTodo(index)" class='close' aria-hidden='true'>&times;</a>
-    </li>
-  </ul>
-
-  <div class="pagination">
-    <button v-for="(page,index) in (todos.length/pagination.pageItems)"
-            id='#pageNumber'
-            class="page-number"
-            value={{index+1}}
-            @click="changePage(index+1)">
-      {{index+1}}
-    </button>;
+    <div class="pagination">
+      <button v-for="(page,index) in (todos.length/pagination.pageItems)" :key="index">
+              id='#pageNumber'
+              class="page-number"
+              value={{index+1}}
+              @click="changePage(index+1)">
+        {{index+1}}
+      </button>
+    </div>
   </div>
 </template>
 
 <script type="text/javascript">
-    export default {
-        props: ['todos','filters','pagination'],
-        data() {
-            return {
-                name: '',
-                isEditing: false,
-                checked: false,
-                blocked: false,
-                item: 'item',
-            };
-        },
-        methods: {
-            showAll() {
-                filter = 'showAll';
-                this.todos.forEach( (item,i) => this.todos[i].blocked = false);
-            },
-            showChecked() {
-                filter = 'showChecked';
-                this.todos.forEach( (item,i) => {
-                    if(this.todos[i].checked){
-                        this.todos[i].blocked = false
-                    }
-                });
-            },
-            changePage(index){
-                this.pagination.pageNumber = index;
-            },
-            showUnchecked() {
-                filter = 'showUnchecked';
-                this.todos.forEach( (item,i) => {
-                    if(!this.todos[i].checked){
-                        this.todos[i].blocked = false
-                    }
-                });
-            },
-            checkTodo(index) {
-                this.todos[index].checked = !this.todos[index].checked;
-            },
-            createTodo(){
-            },
-            editTodo(index) {
-                this.todos[index].isEditing = !this.todos[index].isEditing;
-            },
-            deleteTodo(index) {
-                this.todos.splice(index,1);
-            },
-        },
-    };
+
+function getMaxOfArray (numArray) {
+  return (Math.max.apply(null, numArray) + 1)
+}
+
+export default {
+  props: ['todos', 'filter', 'pagination', 'idList'],
+  data () {
+    return {
+      name: '',
+      isEditing: false,
+      checked: false,
+      id: getMaxOfArray(this.idList),
+      blocked: false,
+      item: 'item'
+    }
+  },
+  methods: {
+    showAll () {
+      this.filter = 'showAll'
+      this.todos.forEach((item, i) => {
+        this.todos[i].blocked = false
+      })
+    },
+    showChecked () {
+      this.filter = 'showChecked'
+      this.todos.forEach((item, i) => {
+        if (this.todos[i].checked) {
+          this.todos[i].blocked = false
+        }
+      })
+    },
+    changePage (index) {
+      this.pagination.pageNumber = index
+    },
+    showUnchecked () {
+      this.filter = 'showUnchecked'
+      this.todos.forEach((item, i) => {
+        if (!this.todos[i].checked) {
+          this.todos[i].blocked = false
+        }
+      })
+    },
+    checkTodo (index) {
+      this.todos[index].checked = !this.todos[index].checked
+    },
+    createTodo () {
+    },
+    editTodo (index) {
+      this.todos[index].isEditing = !this.todos[index].isEditing
+    },
+    deleteTodo (index) {
+      this.todos.splice(index, 1)
+    }
+  }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -251,7 +261,6 @@
     background-color: deepskyblue;
   }
 
-
   .check {
     display: flex;
     flex-direction: column;
@@ -326,7 +335,6 @@
     color: deepskyblue;
     border-bottom: 2px deepskyblue solid;
   }
-
 
   .typer {
     display: flex;
