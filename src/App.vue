@@ -1,6 +1,11 @@
 <template>
   <div id="app">
-    <router-view :todos="todos" :filter="filter" :idList="idList" :pagination="pagination"/>
+    <router-view
+      :todos="todos"
+      :filter="filter"
+      :idList="idList"
+      :pagination="pagination"
+      v-on:create="createTodo"/>
   </div>
 </template>
 
@@ -13,25 +18,15 @@ export default {
   components: {
     ToDoList
   },
+
+    mounted() {
+      console.log(this.todos)
+    },
   data () {
     return {
       idList: [0, 1],
       inputText: '',
-      todos: [{
-        name: 'Todo A',
-        isEditing: false,
-        id: 0,
-        checked: false,
-        blocked: false,
-        item: 'item' + (this.checked ? ' checked' : '')
-      }, {
-        name: 'Todo B',
-        isEditing: false,
-        checked: true,
-        id: 1,
-        blocked: false,
-        item: 'item' + (this.checked ? ' checked' : '')
-      }],
+      todos : JSON.parse(localStorage.getItem('todos') || '[]'),
       filter: 'showAll',
       pagination: {
         pageNumber: 1,
@@ -44,7 +39,9 @@ export default {
   },
   methods: {
     createTodo (newTodo) {
+      this.idList.unshift(newTodo.id)
       this.todos.unshift(newTodo)
+      localStorage.setItem('todos',JSON.stringify(this.todos))
     }
   }
 

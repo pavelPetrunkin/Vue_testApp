@@ -5,7 +5,7 @@
 
       <div class="typer">
         <input type="text" id="text-input"  v-model="inputText" placeholder="New item..." name="task">
-        <button class="button-add" @click="createItem()" id="addId">Add</button>
+        <button class="button-add" v-on:click="createItem" id="addId">Add</button>
       </div>
 
       <div class="options">
@@ -45,7 +45,7 @@
     </div>
 
     <ul id="list">
-      <li v-for="(todo,index) in todos" :key="todo.id" :class="todo.item" v-show="!todos.blocked">
+      <li v-for="(todo,index) in state" :key="todo.id" :class="todo.item" v-show="!todos.blocked">
         <input @click="checkTodo(index)" type="checkbox" id="checkItem" class="check-item"  v-model="todo.checked" >
         <p @dblclick="editTodo(index)" class="editing" @blur="handleInput">{{todo.name}}</p>
         <a href='#' @click="deleteTodo(index)" class='close' aria-hidden='true'>&times;</a>
@@ -65,19 +65,20 @@
 </template>
 
 <script type="text/javascript">
-function getMaxOfArray (numArray) {
+function getNewId (numArray) {
   return (Math.max.apply(null, numArray) + 1)
 }
 
 export default {
   name: 'ToDoList',
-  props: ['todos', 'filter', 'pagination', 'idList', 'inputText'],
+  props: ['todos', 'filter', 'pagination', 'idList', 'inputText', 'createTodo'],
   mounted(){
       console.log(this.todos); // Все нормально
   },
   data() {
       return {
-          index: '',
+          state: this.todos,
+          editItemId: '',
           pages: Math.ceil(this.todos.length/this.pagination.pageItems),
       }
   },
@@ -110,15 +111,19 @@ export default {
     checkTodo (index) {
       this.todos[index].checked = !this.todos[index].checked
     },
-    createTodo () {
-        return {
-            name: this.inputText,
-            isEditing: false,
-            checked: false,
-            id: getMaxOfArray(this.idList),
-            blocked: false,
-            item: 'item'
-        };
+    createItem() {
+        if (this.inputText !== undefined && this.inputText !== ''){
+            let newTodo = {
+                name: this.inputText,
+                isEditing: false,
+                checked: false,
+                id: getNewId(this.idList),
+                blocked: false,
+                item: 'item'
+            }
+            this.$emit('create', newTodo);
+        }
+
     },
     editTodo (index) {
         this.todos[index].isEditing = true
@@ -369,7 +374,7 @@ export default {
   }
 
   .editing {
-    background: blueviolet;
+    background: burlywood;
     border-radius: 1em;
     padding: 0.5em;
     color: white;
