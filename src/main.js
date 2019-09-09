@@ -5,7 +5,7 @@ import App from './App'
 
 Vue.config.productionTip = false
 
-new Vue({
+Vue({
   el: '#app',
   components: { App },
   template: '<App/>'

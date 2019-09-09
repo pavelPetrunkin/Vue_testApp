@@ -5,7 +5,7 @@
       <h2>My To Do List</h2>
 
       <div class="typer">
-        <input type="text" id="text-input"  v-model="todo.name" placeholder="New item..." name="task">
+        <input type="text" :id="text-input"  v-model="todo.name" placeholder="New item..." name="task">
         <button class="button-add" v-on:click="createItem()" id="addId">Add</button>
       </div>
 
@@ -46,18 +46,18 @@
     </div>
 
     <ul id="list">
-      <li v-for="(todo,index) in todos" :key="todo.id" class={{todo.item}} v-show="todos.blocked">
+      <li v-for="(todo,index) in todos" :key="todo.id" :class="todo.item" v-show="todos.blocked">
         <input @click="checkTodo(index)" type="checkbox" id="checkItem" class="check-item"  v-model="todo.checked" >
-        <p @click="editTodo(index)" contenteditable={{todo.editing}} class="editing">{{todo.name}}</p>
+        <p @click="editTodo(index)" :contenteditable="todo.editing" class="editing">{{todo.name}}</p>
         <a href='#' @click="deleteTodo(index)" class='close' aria-hidden='true'>&times;</a>
       </li>
     </ul>
 
     <div class="pagination">
-      <button v-for="(page,index) in (todos.length/pagination.pageItems)" :key="index">
+      <button v-for="(page,index) in (todos.length/pagination.pageItems)" :key="index"
               id='#pageNumber'
               class="page-number"
-              value={{index+1}}
+              :value="index+1"
               @click="changePage(index+1)">
         {{index+1}}
       </button>
