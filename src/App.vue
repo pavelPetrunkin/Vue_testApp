@@ -1,11 +1,6 @@
 <template>
   <div id="app">
-    <todo-list v-bind:todos="todos"
-               v-bind:filter="filter"
-               v-bind:pagination="pagination"
-               v-bind:idList="idList"
-               v-on:create-todo="createTodo">
-    </todo-list>
+    <router-view :todos="todos" :filter="filter" :idList="idList" :pagination="pagination"/>
   </div>
 </template>
 
@@ -21,6 +16,7 @@ export default {
   data () {
     return {
       idList: [0, 1],
+      inputText: '',
       todos: [{
         name: 'Todo A',
         isEditing: false,

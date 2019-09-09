@@ -1,12 +1,11 @@
-
 <template>
   <div>
     <div id="header-id" class="header">
       <h2>My To Do List</h2>
 
       <div class="typer">
-        <input type="text" :id="text-input"  v-model="todo.name" placeholder="New item..." name="task">
-        <button class="button-add" v-on:click="createItem()" id="addId">Add</button>
+        <input type="text" id="text-input"  v-model="inputText" placeholder="New item..." name="task">
+        <button class="button-add" @click="createItem()" id="addId">Add</button>
       </div>
 
       <div class="options">
@@ -15,26 +14,26 @@
             <div class="checkAll">
 
               <input type="checkbox" class="input-checkAll" id="checkAll" name="Check/uncheck all">
-              <label style="margin:0;" for="checkAll">CheckAll</label>
+              <label style="margin:0" for="checkAll">CheckAll</label>
             </div>
-            <button class="button-delete" v-on:click="deleteChecked()" id="deleteId">Delete checked</button>
+            <button class="button-delete" @click="deleteChecked()" id="deleteId">Delete checked</button>
           </div>
 
           <div class="filters">
             <div class='showAll active-filter'>
-              <label v-on:click="filter.showAll" id="show-all" class='filter'>
+              <label @click="filter.showAll" id="show-all" class='filter'>
                 <p>Show all</p>
               </label>
             </div>
 
             <div class='showChecked'>
-              <label v-on:click="filter.showChecked" id="show-checked" class='filter'>
+              <label @click="filter.showChecked" id="show-checked" class='filter'>
                 <p>Show Checked</p>
               </label>
             </div>
 
             <div class='showUnchecked'>
-              <label v-on:click="filter.showUnchecked" id="show-unchecked"  class='filter'>
+              <label @click="filter.showUnchecked" id="show-unchecked"  class='filter'>
                 <p>Show Unchecked</p>
               </label>
             </div>
@@ -46,15 +45,15 @@
     </div>
 
     <ul id="list">
-      <li v-for="(todo,index) in todos" :key="todo.id" :class="todo.item" v-show="todos.blocked">
+      <li v-for="(todo,index) in todos" :key="todo.id" :class="todo.item" v-show="!todos.blocked">
         <input @click="checkTodo(index)" type="checkbox" id="checkItem" class="check-item"  v-model="todo.checked" >
-        <p @click="editTodo(index)" :contenteditable="todo.editing" class="editing">{{todo.name}}</p>
+        <p @dblclick="editTodo(index)" class="editing" @blur="handleInput">{{todo.name}}</p>
         <a href='#' @click="deleteTodo(index)" class='close' aria-hidden='true'>&times;</a>
       </li>
     </ul>
 
     <div class="pagination">
-      <button v-for="(page,index) in (todos.length/pagination.pageItems)" :key="index"
+      <button v-for="(page,index) in pages" :key="index"
               id='#pageNumber'
               class="page-number"
               :value="index+1"
@@ -66,22 +65,21 @@
 </template>
 
 <script type="text/javascript">
-
 function getMaxOfArray (numArray) {
   return (Math.max.apply(null, numArray) + 1)
 }
 
 export default {
-  props: ['todos', 'filter', 'pagination', 'idList'],
-  data () {
-    return {
-      name: '',
-      isEditing: false,
-      checked: false,
-      id: getMaxOfArray(this.idList),
-      blocked: false,
-      item: 'item'
-    }
+  name: 'ToDoList',
+  props: ['todos', 'filter', 'pagination', 'idList', 'inputText'],
+  mounted(){
+      console.log(this.todos); // Все нормально
+  },
+  data() {
+      return {
+          index: '',
+          pages: Math.ceil(this.todos.length/this.pagination.pageItems),
+      }
   },
   methods: {
     showAll () {
@@ -113,9 +111,25 @@ export default {
       this.todos[index].checked = !this.todos[index].checked
     },
     createTodo () {
+        return {
+            name: this.inputText,
+            isEditing: false,
+            checked: false,
+            id: getMaxOfArray(this.idList),
+            blocked: false,
+            item: 'item'
+        };
     },
     editTodo (index) {
-      this.todos[index].isEditing = !this.todos[index].isEditing
+        this.todos[index].isEditing = true
+        this.index = index
+        this.$el.querySelector('.editing').focus()
+    },
+    handleInput (e) {
+        let text = e.target.innerHTML
+        if(text !== ''){
+            this.todos[this.index].name = text
+        }
     },
     deleteTodo (index) {
       this.todos.splice(index, 1)
@@ -173,7 +187,7 @@ export default {
 
   /* Style the header */
   .header {
-    background-color: #f44336;
+    background-color: burlywood;
     padding: 30px 40px;
     color: white;
     text-align: center;
