@@ -26,15 +26,17 @@ let mutations = {
     state.todos = payload
   },
 
+  CHANGE_PAGE: (state, payload) => {
+    state.pagination.pageNumber = payload
+  },
+
   CHECK_TODO: (state, payload) => {
-    console.log(payload)
     state.todos = payload.slice()
   },
 
   ADD_TODO: (state, payload) => {
     state.todos = payload.todos.slice()
     state.idList = payload.idList.slice()
-    console.log(state)
   }
 }
 
@@ -50,6 +52,9 @@ let actions = {
   },
   CHANGE_CHECK: (context, payload) => {
     context.commit('CHECK_TODO', payload)
+  },
+  GET_PAGE: (context, payload) => {
+    context.commit('CHANGE_PAGE', payload)
   }
 }
 

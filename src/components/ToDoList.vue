@@ -22,19 +22,19 @@
           <div class="filters">
             <div class='showAll active-filter'>
               <label @click="filter.showAll" id="show-all" class='filter'>
-                <p>Show all</p>
+                <p>Show all {{countAll}}</p>
               </label>
             </div>
 
             <div class='showChecked'>
               <label @click="filter.showChecked" id="show-checked" class='filter'>
-                <p>Show Checked</p>
+                <p>Show Checked {{countChecked}}</p>
               </label>
             </div>
 
             <div class='showUnchecked'>
               <label @click="filter.showUnchecked" id="show-unchecked"  class='filter'>
-                <p>Show Unchecked</p>
+                <p>Show Unchecked {{countUnchecked}}</p>
               </label>
             </div>
           </div>
@@ -57,7 +57,7 @@
               id='#pageNumber'
               class="page-number"
               :value="index+1"
-              @click="changePage(index+1)">
+              @click="getPage(index+1)">
         {{index+1}}
       </button>
     </div>
@@ -67,10 +67,10 @@
 <script type="text/javascript">
 
 function getNewId (numArray) {
-  if(numArray.length > 0){
-      return (Math.max.apply(null, numArray) + 1)
+  if (numArray.length > 0) {
+    return (Math.max.apply(null, numArray) + 1)
   } else {
-      return 0
+    return 0
   }
 }
 
@@ -78,18 +78,21 @@ export default {
   name: 'ToDoList',
   props: ['todos', 'filter', 'pagination', 'idList', 'inputText', 'createTodo'],
   mounted () {
-    console.log(this.$store.getters.TODOS)
   },
   computed: {
     todoList () {
-      return this.$store.getters.TODOS
+      return this.todos
+    },
+    countChecked () {
+      return this.todos.filter(item => item.checked === true).length
+    },
+    countUnchecked () {
+      return this.todos.filter(item => item.checked === false).length
+    },
+    countAll () {
+      return this.todos.length
     }
-  },
-  data () {
-    return {
-      editItemId: '',
-      pages: Math.ceil(this.todos.length / this.pagination.pageItems)
-    }
+
   },
   methods: {
     showAll () {
@@ -106,8 +109,8 @@ export default {
         }
       })
     },
-    changePage (index) {
-      this.pagination.pageNumber = index
+    getPage (page) {
+      this.$emit('getPage', page)
     },
     showUnchecked () {
       this.filter = 'showUnchecked'
