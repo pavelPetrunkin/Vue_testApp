@@ -67,14 +67,18 @@
 <script type="text/javascript">
 
 function getNewId (numArray) {
-  return (Math.max.apply(null, numArray) + 1)
+  if(numArray.length > 0){
+      return (Math.max.apply(null, numArray) + 1)
+  } else {
+      return 0
+  }
 }
 
 export default {
   name: 'ToDoList',
   props: ['todos', 'filter', 'pagination', 'idList', 'inputText', 'createTodo'],
   mounted () {
-    // this.$store.dispatch('GET_TODO'); // Все нормально
+    console.log(this.$store.getters.TODOS)
   },
   computed: {
     todoList () {
@@ -83,7 +87,6 @@ export default {
   },
   data () {
     return {
-      state: this.$store.getters.TODOS,
       editItemId: '',
       pages: Math.ceil(this.todos.length / this.pagination.pageItems)
     }
@@ -115,7 +118,7 @@ export default {
       })
     },
     checkTodo (index) {
-      this.todos[index].checked = !this.todos[index].checked
+      this.$emit('checkOne', index)
     },
     createItem () {
       if (this.inputText !== undefined && this.inputText !== '') {

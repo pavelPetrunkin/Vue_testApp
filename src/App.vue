@@ -5,7 +5,8 @@
       :filter="filter"
       :idList="idList"
       :pagination="pagination"
-      v-on:create="createTodo"/>
+      v-on:create="createTodo"
+      v-on:checkOne="checkTodo"/>
   </div>
 </template>
 
@@ -23,31 +24,27 @@ export default {
   },
   data () {
     return {
-      idList: [0, 1],
-      inputText: '',
-      todos: JSON.parse(localStorage.getItem('todos') || '[]'),
-      filter: 'showAll',
-      pagination: {
-        pageNumber: 1,
-        pageItems: 3
-      },
-      editing: {
-        focusTodo: ''
-      }
+      idList: this.$store.getters.STATE.idList,
+      inputText: this.$store.getters.STATE.inputText,
+      todos: this.$store.getters.STATE.todos,
+      filter: this.$store.getters.STATE.filter,
+      pagination: this.$store.getters.STATE.pagination,
+      editing: this.$store.getters.STATE.editing
     }
   },
   methods: {
     createTodo (newTodo) {
-      console.log(this.todos)
       this.idList.unshift(newTodo.id)
       this.todos.unshift(newTodo)
-      console.log(this.todos)
-      let payload = [this.idList, this.todos]
+      let payload = {idList: this.idList.slice(), todos: this.todos.slice()}
       this.$store.dispatch('SAVE_TODO', payload)
-      // localStorage.setItem('todos', JSON.stringify(this.todos))
+    },
+    checkTodo (index) {
+      this.todos[index].checked = !this.todos[index].checked
+      let payload = {todos: this.todos.slice()}
+      this.$store.dispatch('CHANGE_CHECK', payload)
     }
   }
-
 }
 </script>
 
