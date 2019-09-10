@@ -18,15 +18,14 @@ export default {
   components: {
     ToDoList
   },
-
-    mounted() {
-      console.log(this.todos)
-    },
+  mounted () {
+    // console.log(this.todos)
+  },
   data () {
     return {
       idList: [0, 1],
       inputText: '',
-      todos : JSON.parse(localStorage.getItem('todos') || '[]'),
+      todos: JSON.parse(localStorage.getItem('todos') || '[]'),
       filter: 'showAll',
       pagination: {
         pageNumber: 1,
@@ -39,9 +38,13 @@ export default {
   },
   methods: {
     createTodo (newTodo) {
+      console.log(this.todos)
       this.idList.unshift(newTodo.id)
       this.todos.unshift(newTodo)
-      localStorage.setItem('todos',JSON.stringify(this.todos))
+      console.log(this.todos)
+      let payload = [this.idList, this.todos]
+      this.$store.dispatch('SAVE_TODO', payload)
+      // localStorage.setItem('todos', JSON.stringify(this.todos))
     }
   }
 

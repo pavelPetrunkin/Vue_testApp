@@ -45,7 +45,7 @@
     </div>
 
     <ul id="list">
-      <li v-for="(todo,index) in state" :key="todo.id" :class="todo.item" v-show="!todos.blocked">
+      <li v-for="(todo,index) in todoList" :key="todo.id" :class="todo.item" v-show="!todos.blocked">
         <input @click="checkTodo(index)" type="checkbox" id="checkItem" class="check-item"  v-model="todo.checked" >
         <p @dblclick="editTodo(index)" class="editing" @blur="handleInput">{{todo.name}}</p>
         <a href='#' @click="deleteTodo(index)" class='close' aria-hidden='true'>&times;</a>
@@ -65,6 +65,7 @@
 </template>
 
 <script type="text/javascript">
+
 function getNewId (numArray) {
   return (Math.max.apply(null, numArray) + 1)
 }
@@ -72,15 +73,20 @@ function getNewId (numArray) {
 export default {
   name: 'ToDoList',
   props: ['todos', 'filter', 'pagination', 'idList', 'inputText', 'createTodo'],
-  mounted(){
-      console.log(this.todos); // Все нормально
+  mounted () {
+    // this.$store.dispatch('GET_TODO'); // Все нормально
   },
-  data() {
-      return {
-          state: this.todos,
-          editItemId: '',
-          pages: Math.ceil(this.todos.length/this.pagination.pageItems),
-      }
+  computed: {
+    todoList () {
+      return this.$store.getters.TODOS
+    }
+  },
+  data () {
+    return {
+      state: this.$store.getters.TODOS,
+      editItemId: '',
+      pages: Math.ceil(this.todos.length / this.pagination.pageItems)
+    }
   },
   methods: {
     showAll () {
@@ -111,30 +117,29 @@ export default {
     checkTodo (index) {
       this.todos[index].checked = !this.todos[index].checked
     },
-    createItem() {
-        if (this.inputText !== undefined && this.inputText !== ''){
-            let newTodo = {
-                name: this.inputText,
-                isEditing: false,
-                checked: false,
-                id: getNewId(this.idList),
-                blocked: false,
-                item: 'item'
-            }
-            this.$emit('create', newTodo);
+    createItem () {
+      if (this.inputText !== undefined && this.inputText !== '') {
+        let newTodo = {
+          name: this.inputText,
+          isEditing: false,
+          checked: false,
+          id: getNewId(this.idList),
+          blocked: false,
+          item: 'item'
         }
-
+        this.$emit('create', newTodo)
+      }
     },
     editTodo (index) {
-        this.todos[index].isEditing = true
-        this.index = index
-        this.$el.querySelector('.editing').focus()
+      this.todos[index].isEditing = true
+      this.index = index
+      this.$el.querySelector('.editing').focus()
     },
     handleInput (e) {
-        let text = e.target.innerHTML
-        if(text !== ''){
-            this.todos[this.index].name = text
-        }
+      let text = e.target.innerHTML
+      if (text !== '') {
+        this.todos[this.index].name = text
+      }
     },
     deleteTodo (index) {
       this.todos.splice(index, 1)
