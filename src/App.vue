@@ -1,7 +1,10 @@
 <template>
   <div id="app">
+    <div id="game-stage-background">
+
+    </div>
     <router-view
-      :todos="data.todos"
+      :characters="data.characters"
       :filter="data.filter"
       :idList="data.idList"
       :pagination="data.pagination"
@@ -13,22 +16,22 @@
 
 <script>
 
-import ToDoList from './components/ToDoList'
+import VsStage from './components/VsStage'
 
 export default {
   name: 'App',
   components: {
-    ToDoList
+    VsStage
   },
   mounted () {
-    // console.log(this.todos)
+    // console.log(this.characters)
   },
   computed: {
     data () {
       return {
         idList: this.$store.getters.STATE.idList,
         inputText: this.$store.getters.STATE.inputText,
-        todos: this.$store.getters.STATE.todos,
+        characters: this.$store.getters.STATE.characters,
         filter: this.$store.getters.STATE.filter,
         pagination: this.$store.getters.STATE.pagination,
         editing: this.$store.getters.STATE.editing
@@ -39,13 +42,13 @@ export default {
   methods: {
     createTodo (newTodo) {
       this.idList.unshift(newTodo.id)
-      this.todos.unshift(newTodo)
-      let payload = {idList: this.idList.slice(), todos: this.todos.slice()}
+      this.characters.unshift(newTodo)
+      let payload = {idList: this.idList.slice(), characters: this.characters.slice()}
       this.$store.dispatch('SAVE_TODO', payload)
     },
     checkTodo (index) {
-      this.todos[index].checked = !this.todos[index].checked
-      let payload = {todos: this.todos.slice()}
+      this.characters[index].checked = !this.characters[index].checked
+      let payload = {characters: this.characters.slice()}
       this.$store.dispatch('CHANGE_CHECK', payload)
     },
     changePage (page) {
@@ -57,11 +60,7 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
+
 </style>

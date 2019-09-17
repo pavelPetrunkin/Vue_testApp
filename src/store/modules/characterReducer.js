@@ -1,7 +1,9 @@
 import axios from 'axios'
 
 let state = {
-  todos: [],
+  characters: [],
+  enemies: [],
+  pairs: [],
   idList: [],
   pagination: {
     pageNumber: 1,
@@ -13,8 +15,8 @@ let state = {
 }
 
 let getters = {
-  TODOS: state => {
-    return state.todos
+  CHARACTERS: state => {
+    return state.characters
   },
   STATE: state => {
     return state
@@ -22,36 +24,36 @@ let getters = {
 }
 
 let mutations = {
-  SET_TODO: (state, payload) => {
-    state.todos = payload
+  SET_CHARACTER: (state, payload) => {
+    state.characters = payload
   },
 
   CHANGE_PAGE: (state, payload) => {
     state.pagination.pageNumber = payload
   },
 
-  CHECK_TODO: (state, payload) => {
-    state.todos = payload.slice()
+  CHECK_CHARACTER: (state, payload) => {
+    state.characters = payload.slice()
   },
 
-  ADD_TODO: (state, payload) => {
-    state.todos = payload.todos.slice()
+  ADD_CHARACTER: (state, payload) => {
+    state.characters = payload.characters.slice()
     state.idList = payload.idList.slice()
   }
 }
 
 let actions = {
-  GET_TODO: async (context, payload) => {
+  GET_CHARACTER: async (context, payload) => {
     let {data} = await axios.get('http://yourwebsite.com/api/todo')
-    context.commit('SET_TODO', data)
+    context.commit('SET_CHARACTER', data)
   },
 
-  SAVE_TODO: async (context, payload) => {
+  SAVE_CHARACTER: async (context, payload) => {
     // let {data} = await axios.post('http://yourwebsite.com/api/todo');
-    context.commit('ADD_TODO', payload)
+    context.commit('ADD_CHARACTER', payload)
   },
   CHANGE_CHECK: (context, payload) => {
-    context.commit('CHECK_TODO', payload)
+    context.commit('CHECK_CHARACTER', payload)
   },
   GET_PAGE: (context, payload) => {
     context.commit('CHANGE_PAGE', payload)

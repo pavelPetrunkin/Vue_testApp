@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import todos from './modules/todos'
+import characterReducer from './modules/characterReducer'
 
 Vue.use(Vuex)
 
@@ -10,6 +10,6 @@ export const store = new Vuex.Store({
   mutations: {},
   actions: {},
   modules: {
-    todos
+    characterReducer
   }
 })

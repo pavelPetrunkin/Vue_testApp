@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import ToDoList from '@/components/ToDoList'
+import VsStage from '@/components/VsStage'
 
 Vue.use(Router)
 
@@ -8,8 +8,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'ToDoList',
-      component: ToDoList
+      name: 'VsStage',
+      component: VsStage
     }
   ]
 })
