@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="vs-info">
     <div id="header-id" class="header">
       <div>
         <div class="first-team-background"></div>
@@ -122,6 +122,11 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
+  .vs-info {
+    position: relative;
+    z-index: 1;
+  }
+
   .stage-background {
     background: #00000D;
     position: absolute;
@@ -129,22 +134,21 @@ export default {
     height: 38px;
     left: 650px;
     top: 77px;
+    clip-path: polygon(0 0, 100% 0, 90% 100%, 11% 100%);
   }
-
-  .game-stage-title {
-    top: 1px;
-  }
-
-
 
   .header {
     display: flex;
     justify-content: space-between;
-    padding: 59px 284px 0 312px;
+    padding: 59px 284px 0 331px;
+  }
+
+  .characters-list {
+    padding: 27px 300px 0 300px;
   }
 
   .middle-border {
-    right: 759px;
+    right: 839px;
     height: 752px;
     width: 2px;
     background: #00000D;
@@ -168,22 +172,30 @@ export default {
   .first-team-background {
     background: #0082B1;
     position: absolute;
-    width: 329px;
+    width: 344px;
     height: 36px;
+    left: 312px;
+    clip-path: polygon(0% 0%, 86% 0%, 96% 100%, 11% 100%);
   }
 
   .second-team-background {
     background: #B63129;
     position: absolute;
-    width: 329px;
+    width: 328px;
     height: 36px;
-    right: 230px;
+    right: 311px;
+    clip-path: polygon(10% 0%, 100% 0%, 88% 100%, 0% 100%);
   }
 
   .first-team-title {
     position: absolute;
     bottom: 10px;
-    left: 93px;
+    left: 74px;
+  }
+
+  .game-stage-title {
+    top: 1px;
+    right: 10px;
   }
 
   .second-team-title {

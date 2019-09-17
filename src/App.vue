@@ -1,13 +1,11 @@
 <template>
   <div id="app">
-    <div id="game-stage-background">
-
-    </div>
     <router-view
       :characters="data.characters"
       :enemies="data.enemies"
-
     />
+    <div id="game-stage-background"></div>
+
   </div>
 </template>
 
@@ -54,6 +52,15 @@ export default {
 <style>
 #app {
   text-align: center;
+}
+
+#game-stage-background {
+  background: linear-gradient(121.91deg, #00000D -0.28%, #1C1F33 100%);
+  opacity: 0.95;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
 }
 
 </style>

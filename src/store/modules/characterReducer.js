@@ -13,7 +13,7 @@ let state = {
       rankedLose: 129,
       champWin: 50,
       champLose: 4,
-      avatar: './nami.png'
+      avatar: '/static/charactersImage/nami.svg'
     },
     {
       nick:'Cortanitoh',
@@ -26,7 +26,7 @@ let state = {
       rankedLose: 129,
       champWin: 50,
       champLose: 4,
-      avatar: './missfortune.png'
+      avatar: '/static/charactersImage/missfortune.svg'
     }
   ],
   enemies: [
@@ -41,7 +41,7 @@ let state = {
       rankedLose: 129,
       champWin: 50,
       champLose: 4,
-      avatar: './king.png'
+      avatar: '/static/charactersImage/jax.svg'
     },
     {
       nick:'Hdops',
@@ -54,7 +54,7 @@ let state = {
       rankedLose: 129,
       champWin: 50,
       champLose: 4,
-      avatar: './heimerdinger.png'
+      avatar: '/static/charactersImage/heimerdinger.svg'
     },
   ],
   idList: [],

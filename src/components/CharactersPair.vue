@@ -33,7 +33,7 @@
           </div>
         </div>
         <div>
-          <img src="" alt="">
+          <img :src="character.avatar" alt="">
         </div>
       </div>
 
@@ -70,7 +70,7 @@
           </div>
         </div>
         <div>
-          <img src="" alt="">
+          <img :src="enemy.avatar" alt="">
         </div>
       </div>
     </div>
@@ -105,7 +105,7 @@
   }
 
   .name {
-    font-family: Work Sans;
+    font-family: Work Sans,serif;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -117,12 +117,21 @@
   }
 
   .nick {
-    font-family: Work Sans;
+    font-family: Work Sans,serif;
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
     line-height: 21px;
     color: #EAEAEE;
+  }
+
+  .first-player {
+    display: flex;
+  }
+
+  .second-player {
+    display: flex;
+    flex-direction: row-reverse;
   }
 
   .first-player .stats {
