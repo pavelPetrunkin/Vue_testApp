@@ -17,6 +17,12 @@
                 <p>Ranked stats:</p>
                 <p>{{character.champWin + '/' + character.champLose}} - 64.0%</p>
               </div>
+              <div class="skills">
+                <img :src="character.ability1" alt="">
+                <img :src="character.ability3" alt="">
+                <img :src="character.ability2" alt="">
+                <img :src="character.ability4" alt="">
+              </div>
             </div>
             <div class="stats-name">
               <p>Debuff Tag</p>
@@ -25,12 +31,7 @@
               <p>Main Tag</p>
             </div>
           </div>
-          <div>
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-          </div>
+
         </div>
         <div>
           <img :src="character.avatar" alt="">
@@ -45,6 +46,12 @@
           </div>
           <div>
             <div class="stats">
+              <div class="skills">
+                <img :src="enemy.ability3" alt="">
+                <img :src="enemy.ability1" alt="">
+                <img :src="enemy.ability4" alt="">
+                <img :src="enemy.ability2" alt="">
+              </div>
               <div>
                 <p>Champ stats:</p>
                 <p>50/4 - 36.5%</p>
@@ -61,12 +68,6 @@
               <p>Main Tag</p>
 
             </div>
-          </div>
-          <div>
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
           </div>
         </div>
         <div>
@@ -97,7 +98,7 @@
 
   .players-pair {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   .first-player .header {
@@ -127,6 +128,11 @@
 
   .first-player {
     display: flex;
+    margin-right: 131px;
+  }
+
+  .first-player:nth-child(n+1) {
+    margin-right: 161px;
   }
 
   .second-player {
@@ -144,6 +150,16 @@
 
   .header {
     display: flex;
+  }
+
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .skills img {
+    flex-basis: 41%;
   }
 
   .stats {
