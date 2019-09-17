@@ -16,11 +16,12 @@
         <h2 class="second-team-title">DOLOR SIT AMET</h2>
       </div>
     </div>
-    <div v-for="(pair,index) in pairs" class="characters-list">
+    <div class="characters-list">
       <CharactersPair
+        v-for="(pair,index) in pairs"
         :character="pair[0]"
         :enemy="pair[1]"
-        v-on:checkOne="checkTodo"
+        :key="index"
       />
 
     </div>
@@ -31,17 +32,21 @@
 
 import CharactersPair from "./CharactersPair";
 
+function pairSplit (characters,enemies){
+    return characters.map( (item,index) => [item,enemies[index]])
+}
+
 export default {
   name: 'VsStage',
-  props: ['characters', 'enemies','pairs'],
+  props: ['characters', 'enemies'],
   components: {
     CharactersPair,
   },
   mounted () {
   },
   computed: {
-    characterList () {
-      return this.characters
+    pairs () {
+      return pairSplit(this.characters,this.enemies)
     },
     countChecked () {
       return this.characters.filter(item => item.checked === true).length

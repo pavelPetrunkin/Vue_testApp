@@ -5,12 +5,9 @@
     </div>
     <router-view
       :characters="data.characters"
-      :filter="data.filter"
-      :idList="data.idList"
-      :pagination="data.pagination"
-      v-on:create="createTodo"
-      v-on:checkOne="checkTodo"
-      v-on:getPage="changePage"/>
+      :enemies="data.enemies"
+
+    />
   </div>
 </template>
 
@@ -29,12 +26,8 @@ export default {
   computed: {
     data () {
       return {
-        idList: this.$store.getters.STATE.idList,
-        inputText: this.$store.getters.STATE.inputText,
         characters: this.$store.getters.STATE.characters,
-        filter: this.$store.getters.STATE.filter,
-        pagination: this.$store.getters.STATE.pagination,
-        editing: this.$store.getters.STATE.editing
+        enemies: this.$store.getters.STATE.enemies,
       }
     }
   },
