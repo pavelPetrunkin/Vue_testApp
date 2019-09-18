@@ -8,3 +8,16 @@ body {
 .characters-list div:not(:first-child) .first-player {
   margin-right: 160px;
 }
+
+
+.characters-list div:not(:first-child) .second-player .nick {
+  left: 16px;
+}
+
+.characters-list div:not(:first-child) .second-player .skills {
+  position: relative;
+  left: 15px;
+}
+.characters-list div:not(:first-child) .second-player .abilities-row2 {
+  right: 10px;
+}

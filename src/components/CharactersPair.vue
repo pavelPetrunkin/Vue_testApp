@@ -231,6 +231,7 @@
     margin-bottom: 2px;
     height: 24px;
     width: 24px;
+    border: 1px solid gray;
   }
 
   .character-info {
@@ -324,11 +325,9 @@
     color: #FFFFFF;
   }
 
-  /*.stats-name p:last-child {*/
-  /*  word-spacing: -1px;*/
-  /*  letter-spacing: -1px;*/
-  /*  right: 4px;*/
-  /*}*/
+  .second-player .stats-name p:last-child {
+    color: #FFFFFF;
+  }
 
   .stats-name p {
     display: flex;
