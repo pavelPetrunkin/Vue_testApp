@@ -8,6 +8,9 @@
       <div>
         <div class="stage-background"></div>
         <div class="middle-border"></div>
+        <div  class="role">
+          <LineRoll v-for="role in roles" />
+        </div>
         <h2 class="game-stage-title">TEAM COMPARISON</h2>
       </div>
 
@@ -31,9 +34,14 @@
 <script type="text/javascript">
 
 import CharactersPair from "./CharactersPair";
+import LineRoll from "./LineRoll";
 
 function pairSplit (characters,enemies){
     return characters.map( (item,index) => [item,enemies[index]])
+}
+
+function roleSplit (characters){
+    return characters.map( (item) => [item.role])
 }
 
 export default {
@@ -41,12 +49,16 @@ export default {
   props: ['characters', 'enemies'],
   components: {
     CharactersPair,
+    LineRoll,
   },
   mounted () {
   },
   computed: {
     pairs () {
       return pairSplit(this.characters,this.enemies)
+    },
+    roles () {
+        return roleSplit(this.characters)
     },
     countChecked () {
       return this.characters.filter(item => item.checked === true).length
@@ -127,6 +139,16 @@ export default {
     z-index: 1;
   }
 
+  .role {
+    position: absolute;
+    right: 820px;
+    top: 188px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
   .stage-background {
     background: #00000D;
     position: absolute;
@@ -144,7 +166,7 @@ export default {
   }
 
   .characters-list {
-    padding: 22px 252px 0 252px;
+    padding: 23px 252px 0 252px;
   }
 
   .middle-border {

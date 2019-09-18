@@ -13,6 +13,7 @@ let state = {
       rankedLose: 129,
       champWin: 50,
       champLose: 4,
+      role: 'damage',
       avatar: '/static/charactersImage/nami.svg'
     },
     {
@@ -26,6 +27,7 @@ let state = {
       rankedLose: 129,
       champWin: 50,
       champLose: 4,
+      role: 'damage',
       avatar: '/static/charactersImage/missfortune.svg'
     }
   ],

@@ -11,12 +11,12 @@
             <div class="stats-info">
               <div class="stats">
                 <div>
-                  <p>Champ stats:</p>
-                  <p>{{character.rankedWin + '/' + character.rankedLose}} - 36.5%</p>
+                  <p>Champ Stats:</p>
+                  <p>{{character.champWin + '/' + character.champLose}} - 36.5%</p>
                 </div>
                 <div>
-                  <p>Ranked stats:</p>
-                  <p>{{character.champWin + '/' + character.champLose}} - 64.0%</p>
+                  <p>Ranked Stats:</p>
+                  <p>{{character.rankedWin + '/' + character.rankedLose}} - 64.0%</p>
                 </div>
               </div>
               <div class="stats-name">
@@ -27,12 +27,12 @@
               </div>
             </div>
             <div class="skills">
-              <div>
+              <div class="abilities-row1">
                 <img :src="character.ability1" alt="">
-                <img :src="character.ability3" alt="">
-              </div>
-              <div>
                 <img :src="character.ability2" alt="">
+              </div>
+              <div class="abilities-row2">
+                <img :src="character.ability3" alt="">
                 <img :src="character.ability4" alt="">
               </div>
             </div>
@@ -64,19 +64,19 @@
               <div class="stats-info">
                 <div class="stats">
                   <div>
-                    <p>Champ stats:</p>
+                    <p>Champ Stats:</p>
                     <p>50/4 - 36.5%</p>
                   </div>
                   <div>
-                    <p>Ranked stats:</p>
+                    <p>Ranked Stats:</p>
                     <p>{{enemy.rankedWin + '/' + enemy.rankedLose}} - 64.0%</p>
                   </div>
                 </div>
                 <div class="stats-name">
-                  <p>Debuff Tag</p>
-                  <p>Sub Tag</p>
-                  <p>Sub Tag</p>
                   <p>Main Tag</p>
+                  <p>Sub Tag</p>
+                  <p>Sub Tag</p>
+                  <p>Debuff Tag</p>
                 </div>
               </div>
             </div>
@@ -112,6 +112,9 @@
     display: flex;
     justify-content: center;
     height: 140px;
+  }
+
+  .players-pair > div {
     padding-top: 6px;
   }
 
@@ -140,6 +143,9 @@
     font-size: 18px;
     line-height: 21px;
     color: #EAEAEE;
+  }
+
+  .second-player .nick {
     margin-right: 60px;
   }
 
@@ -174,11 +180,21 @@
 
   .second-player .abilities-row2 {
     position: relative;
-    right: 11px;
+    right: 8px;
   }
 
   .first-player .stats-name {
     justify-content: flex-end;
+  }
+
+  .first-player .abilities-row2 {
+    position: relative;
+    left: 1px;
+  }
+
+  .first-player .abilities-row1 {
+    position: relative;
+    left: 8px;
   }
 
   .header {
@@ -189,7 +205,17 @@
   .header p {
     margin-top: 15px;
     margin-bottom: 14px;
+    position: relative;
   }
+
+  .first-player .header p:first-child {
+    right: 36px;
+  }
+
+  .first-player .header p:last-child {
+    right: 15px;
+  }
+
 
   .skills {
     display: flex;
@@ -237,6 +263,21 @@
     left: 6px;
   }
 
+  .first-player .stats div:first-child {
+    position: relative;
+    right: 26px;
+  }
+
+  .first-player .stats div:first-child p:last-child {
+    position: relative;
+    left: 2px;
+  }
+
+  .first-player .stats div:last-child p:last-child {
+    position: relative;
+    right: 12px;
+  }
+
   .stats div:last-child p:first-child {
     display: flex;
   }
@@ -246,13 +287,57 @@
     left: 25px;
   }
 
-  .stats-name {
+  .second-player .stats-name {
     display: flex;
     flex-basis: 100%;
+    position: relative;
+    padding-bottom: 5px;
+    left: 5px;
+    justify-content: space-around;
+    width: 237px;
   }
 
-  .stats-name p:first-child {
+  .first-player .stats-name {
+    display: flex;
+    flex-basis: 100%;
+    position: relative;
+    padding-bottom: 5px;
+    justify-content: space-around;
+    width: 237px;
+  }
+
+  .first-player .stats-name p {
+    width: 65px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .second-player .stats-name p:first-child {
     color: #FFFFFF;
+    right: 3px;
+  }
+
+  .first-player .stats-name p:last-child {
+    color: #FFFFFF;
+  }
+
+  /*.stats-name p:last-child {*/
+  /*  word-spacing: -1px;*/
+  /*  letter-spacing: -1px;*/
+  /*  right: 4px;*/
+  /*}*/
+
+  .stats-name p {
+    display: flex;
+    align-items: center;
+    position: relative;
+    background: #1C1F33;
+    height: 20px;
+    top: 4px;
+
+    right: 3px;
+    letter-spacing: -1px;
+    word-spacing: 1px;
   }
 
 </style>
