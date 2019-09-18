@@ -3,7 +3,7 @@ import axios from 'axios'
 let state = {
   characters: [
     {
-      nick:'Cyber Shnitzel',
+      nick: 'Cyber Shnitzel',
       ability1: '/static/skills/arcanecomet.svg',
       ability2: '/static/skills/domination.svg',
       ability3: '/static/skills/flash.svg',
@@ -13,11 +13,11 @@ let state = {
       rankedLose: 129,
       champWin: 50,
       champLose: 4,
-      role: 'knight',
+      role: '/static/roles/top.svg',
       avatar: '/static/charactersImage/nami.svg'
     },
     {
-      nick:'Cortanitoh',
+      nick: 'Cortanitoh',
       ability1: '/static/skills/arcanecomet.svg',
       ability2: '/static/skills/domination.svg',
       ability3: '/static/skills/flash.svg',
@@ -27,11 +27,11 @@ let state = {
       rankedLose: 129,
       champWin: 50,
       champLose: 4,
-      role: 'knight',
+      role: '/static/roles/bottom.svg',
       avatar: '/static/charactersImage/missfortune.svg'
     },
     {
-      nick:'Krozenio',
+      nick: 'Krozenio',
       ability1: '/static/skills/arcanecomet.svg',
       ability2: '/static/skills/domination.svg',
       ability3: '/static/skills/flash.svg',
@@ -41,11 +41,11 @@ let state = {
       rankedLose: 129,
       champWin: 50,
       champLose: 4,
-      role: 'tank',
+      role: '/static/roles/jungle.svg',
       avatar: '/static/charactersImage/lux.svg'
     },
     {
-      nick:'Hakkai',
+      nick: 'Hakkai',
       ability1: '/static/skills/arcanecomet.svg',
       ability2: '/static/skills/domination.svg',
       ability3: '/static/skills/flash.svg',
@@ -55,11 +55,11 @@ let state = {
       rankedLose: 129,
       champWin: 50,
       champLose: 4,
-      role: 'mage',
+      role: '/static/roles/mid.svg',
       avatar: '/static/charactersImage/leesin.svg'
     },
     {
-      nick:'kingatlas10',
+      nick: 'kingatlas10',
       ability1: '/static/skills/arcanecomet.svg',
       ability2: '/static/skills/domination.svg',
       ability3: '/static/skills/flash.svg',
@@ -69,13 +69,13 @@ let state = {
       rankedLose: 129,
       champWin: 50,
       champLose: 4,
-      role: 'beast',
+      role: '/static/roles/support.svg',
       avatar: '/static/charactersImage/khazix.svg'
-    },
+    }
   ],
   enemies: [
     {
-      nick:'King Hauke',
+      nick: 'King Hauke',
       ability1: '/static/skills/arcanecomet.svg',
       ability2: '/static/skills/domination.svg',
       ability3: '/static/skills/flash.svg',
@@ -85,11 +85,11 @@ let state = {
       rankedLose: 129,
       champWin: 50,
       champLose: 4,
-      role:'knight',
+      role: '/static/roles/top.svg',
       avatar: '/static/charactersImage/jax.svg'
     },
     {
-      nick:'Hdops',
+      nick: 'Hdops',
       ability1: '/static/skills/arcanecomet.svg',
       ability2: '/static/skills/domination.svg',
       ability3: '/static/skills/flash.svg',
@@ -99,11 +99,11 @@ let state = {
       rankedLose: 129,
       champWin: 50,
       champLose: 4,
-      role:'knight',
+      role: '/static/roles/bottom.svg',
       avatar: '/static/charactersImage/heimerdinger.svg'
     },
     {
-      nick:'its me rulez',
+      nick: 'its me rulez',
       ability1: '/static/skills/arcanecomet.svg',
       ability2: '/static/skills/domination.svg',
       ability3: '/static/skills/flash.svg',
@@ -113,11 +113,11 @@ let state = {
       rankedLose: 129,
       champWin: 50,
       champLose: 4,
-      role: 'tank',
+      role: '/static/roles/middle.svg',
       avatar: '/static/charactersImage/draven.svg'
     },
     {
-      nick:'Diosa eterna',
+      nick: 'Diosa eterna',
       ability1: '/static/skills/arcanecomet.svg',
       ability2: '/static/skills/domination.svg',
       ability3: '/static/skills/flash.svg',
@@ -127,11 +127,11 @@ let state = {
       rankedLose: 129,
       champWin: 50,
       champLose: 4,
-      role: 'mage',
+      role: '/static/roles/jungle.svg',
       avatar: '/static/charactersImage/caitlyn.svg'
     },
     {
-      nick:'hanstoppable',
+      nick: 'hanstoppable',
       ability1: '/static/skills/arcanecomet.svg',
       ability2: '/static/skills/domination.svg',
       ability3: '/static/skills/flash.svg',
@@ -141,7 +141,7 @@ let state = {
       rankedLose: 129,
       champWin: 50,
       champLose: 4,
-      role: 'beast',
+      role: '/static/roles/support.svg',
       avatar: '/static/charactersImage/bard.svg'
     }
   ],

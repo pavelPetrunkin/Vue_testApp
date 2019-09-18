@@ -36,15 +36,15 @@
 
 <script type="text/javascript">
 
-import CharactersPair from "./CharactersPair";
-import LineRoll from "./LineRoll";
+import CharactersPair from './CharactersPair'
+import LineRoll from './LineRoll'
 
-function pairSplit (characters,enemies){
-    return characters.map( (item,index) => [item,enemies[index]])
+function pairSplit (characters, enemies) {
+  return characters.map((item, index) => [item, enemies[index]])
 }
 
-function roleSplit (characters){
-    return characters.map( (item) => [item.role])
+function roleSplit (characters) {
+  return characters.map((item) => [item.role])
 }
 
 export default {
@@ -52,84 +52,22 @@ export default {
   props: ['characters', 'enemies'],
   components: {
     CharactersPair,
-    LineRoll,
+    LineRoll
   },
   mounted () {
   },
   computed: {
     pairs () {
-      return pairSplit(this.characters,this.enemies)
+      return pairSplit(this.characters, this.enemies)
     },
     roles () {
-        return roleSplit(this.characters)
-    },
-    countChecked () {
-      return this.characters.filter(item => item.checked === true).length
-    },
-    countUnchecked () {
-      return this.characters.filter(item => item.checked === false).length
-    },
-    countAll () {
-      return this.characters.length
+      return roleSplit(this.characters)
     }
-
   },
   methods: {
-    showAll () {
-      this.filter = 'showAll'
-      this.characters.forEach((item, i) => {
-        this.characters[i].blocked = false
-      })
-    },
-    showChecked () {
-      this.filter = 'showChecked'
-      this.characters.forEach((item, i) => {
-        if (this.characters[i].checked) {
-          this.characters[i].blocked = false
-        }
-      })
-    },
-    getPage (page) {
-      this.$emit('getPage', page)
-    },
-    showUnchecked () {
-      this.filter = 'showUnchecked'
-      this.characters.forEach((item, i) => {
-        if (!this.characters[i].checked) {
-          this.characters[i].blocked = false
-        }
-      })
-    },
     checkTodo (index) {
       this.$emit('checkOne', index)
     },
-    createItem () {
-      if (this.inputText !== undefined && this.inputText !== '') {
-        let newTodo = {
-          name: this.inputText,
-          isEditing: false,
-          checked: false,
-          id: getNewId(this.idList),
-          blocked: false,
-          item: 'item'
-        }
-        this.$emit('create', newTodo)
-      }
-    },
-    editTodo (index) {
-      this.characters[index].isEditing = true
-      this.index = index
-      this.$el.querySelector('.editing').focus()
-    },
-    handleInput (e) {
-      let text = e.target.innerHTML
-      if (text !== '') {
-        this.characters[this.index].name = text
-      }
-    },
-    deleteTodo (index) {
-      this.characters.splice(index, 1)
-    }
   }
 }
 </script>
@@ -171,8 +109,6 @@ export default {
   .characters-list {
     padding: 23px 252px 0 252px;
   }
-
-
 
   .middle-border {
     right: 839px;

@@ -93,17 +93,17 @@
 
 <script type="text/javascript">
 
-    export default {
-        name: 'CharactersPair',
-        props: ['character','enemy'],
-        mounted () {
-        },
-        computed: {
+export default {
+  name: 'CharactersPair',
+  props: ['character', 'enemy'],
+  mounted () {
+  },
+  computed: {
 
-        },
-        methods: {
-        }
-    }
+  },
+  methods: {
+  }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

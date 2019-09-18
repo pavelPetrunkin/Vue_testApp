@@ -25,7 +25,7 @@ export default {
     data () {
       return {
         characters: this.$store.getters.STATE.characters,
-        enemies: this.$store.getters.STATE.enemies,
+        enemies: this.$store.getters.STATE.enemies
       }
     }
   },
