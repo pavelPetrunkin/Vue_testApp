@@ -169,6 +169,8 @@ export default {
     padding: 23px 252px 0 252px;
   }
 
+
+
   .middle-border {
     right: 839px;
     height: 752px;

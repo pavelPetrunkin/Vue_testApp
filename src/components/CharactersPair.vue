@@ -38,7 +38,7 @@
             </div>
           </div>
         </div>
-        <div>
+        <div class="avatar">
           <img :src="character.avatar" alt="">
         </div>
       </div>
@@ -82,7 +82,7 @@
             </div>
           </div>
         </div>
-        <div>
+        <div class="avatar">
           <img :src="enemy.avatar" alt="">
         </div>
       </div>
@@ -114,10 +114,6 @@
     height: 140px;
   }
 
-  .players-pair > div {
-    padding-top: 6px;
-  }
-
   .first-player .header {
     justify-content: flex-end;
   }
@@ -134,6 +130,14 @@
     height: 24px;
     display: flex;
     align-items: center;
+  }
+
+  .avatar {
+    display: flex;
+  }
+
+  .player-info {
+    padding-top: 5px;
   }
 
   .nick {
@@ -312,9 +316,8 @@
     justify-content: center;
   }
 
-  .second-player .stats-name p:first-child {
-    color: #FFFFFF;
-    right: 3px;
+  .players-pair:not:first-child {
+    display: flex;
   }
 
   .first-player .stats-name p:last-child {

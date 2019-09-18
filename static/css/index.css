@@ -2,4 +2,9 @@ body {
   margin: 0;
   background: linear-gradient(121.91deg, #00000D -0.28%, #1C1F33 100%);
   opacity: 0.95;
+  width: 1680px;
+}
+
+.characters-list div:not(:first-child) .first-player {
+  margin-right: 160px;
 }
