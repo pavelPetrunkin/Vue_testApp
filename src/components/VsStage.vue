@@ -9,7 +9,10 @@
         <div class="stage-background"></div>
         <div class="middle-border"></div>
         <div  class="role">
-          <LineRoll v-for="role in roles" />
+          <LineRoll
+            v-for="(role,index) in roles"
+            :role="role[0]"
+            :key="index"/>
         </div>
         <h2 class="game-stage-title">TEAM COMPARISON</h2>
       </div>

@@ -307,6 +307,7 @@
     position: relative;
     padding-bottom: 5px;
     left: 5px;
+    top: 1px;
     justify-content: space-around;
     width: 237px;
   }
