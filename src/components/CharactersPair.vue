@@ -54,10 +54,10 @@
               <div class="skills">
                 <div class="abilities-row1">
                   <img :src="enemy.ability3" alt="">
-                  <img :src="enemy.ability1" alt="">
+                  <img :src="enemy.ability4" alt="">
                 </div>
                 <div class="abilities-row2">
-                  <img :src="enemy.ability4" alt="">
+                  <img :src="enemy.ability1" alt="">
                   <img :src="enemy.ability2" alt="">
                 </div>
               </div>
@@ -126,7 +126,8 @@
     line-height: 19px;
     color: #B6B7C6;
     background: black;
-    padding: 0 10px;
+    padding-right: 11px;
+    padding-left: 10px;
     height: 24px;
     display: flex;
     align-items: center;
@@ -170,6 +171,8 @@
   .second-player .header {
     flex-direction: row-reverse;
     justify-content: flex-end;
+    left: 4px;
+    position: relative;
   }
 
   .second-player .stats {
@@ -179,16 +182,17 @@
 
   .second-player .abilities-row1 {
     position: relative;
-    right: 2px;
+    right: 3px;
   }
 
   .second-player .abilities-row2 {
     position: relative;
-    right: 8px;
+    right: 11px;
   }
 
   .first-player .stats-name {
     justify-content: flex-end;
+    top: 1px;
   }
 
   .first-player .abilities-row2 {
@@ -198,12 +202,11 @@
 
   .first-player .abilities-row1 {
     position: relative;
-    left: 8px;
+    left: 11px;
   }
 
   .header {
     display: flex;
-    padding-left: 4px;
   }
 
   .header p {
@@ -212,23 +215,13 @@
     position: relative;
   }
 
-  .first-player .header p:first-child {
-    right: 36px;
-  }
-
-  .first-player .header p:last-child {
-    right: 15px;
-  }
-
-
   .skills {
     display: flex;
-    padding-top: 6px;
+    padding-top: 5px;
   }
 
   .skills img {
     background: #00000D;
-    margin-bottom: 2px;
     height: 24px;
     width: 24px;
     border: 1px solid gray;
@@ -236,6 +229,11 @@
 
   .character-info {
     display: flex;
+  }
+
+  .stats {
+    width: 100%;
+    justify-content: flex-end;
   }
 
   .first-player .stats-info {
@@ -256,6 +254,11 @@
     line-height: 16px;
 
     color: #868797;
+  }
+
+  .second-player .stats-info {
+    position: relative;
+    right: 5px;
   }
 
   .stats p:last-child {

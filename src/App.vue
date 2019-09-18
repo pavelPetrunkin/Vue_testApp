@@ -59,7 +59,7 @@ export default {
   opacity: 0.95;
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 900px;
   top: 0;
 }
 
