@@ -181,6 +181,7 @@ export default {
     background: #00000D;
     position: absolute;
     top: 115px;
+    z-index: 1;
   }
 
   .header h2 {

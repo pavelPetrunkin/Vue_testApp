@@ -1,12 +1,14 @@
 <template>
   <div class="circle">
     <div class="role-tank" v-show="showTank"></div>
-    <div class="role-damage" v-show="showDamage">
+    <div class="role-damage" v-show="showKnight">
       <div class="part1"></div>
       <div class="part2"></div>
       <div class="part3"></div>
     </div>
-    <div class="role-support" v-show="showSupport"></div>
+    <div class="role-mage" v-show="showMage"></div>
+    <div class="role-mage" v-show="showBeast"></div>
+
   </div>
 
 </template>
@@ -16,28 +18,33 @@
   function checkTank(role) {
       return role === 'tank';
   }
-  function checkDamage(role) {
-      return role === 'damage';
+  function checkKnight(role) {
+      return role === 'knight';
   }
-  function checkSupport(role) {
-      return role === 'support';
+  function checkBeast(role) {
+      return role === 'beast';
+  }
+  function checkMage(role) {
+      return role === 'mage';
   }
 
     export default {
         name: 'LineRoll',
         props: ['role'],
         mounted () {
-            console.log(this.role);
         },
         computed: {
             showTank() {
                 return checkTank(this.role)
             },
-            showDamage() {
-                return checkDamage(this.role)
+            showKnight() {
+                return checkKnight(this.role)
             },
-            showSupport() {
-                return checkSupport(this.role)
+            showMage() {
+                return checkMage(this.role)
+            },
+            showBeast() {
+                return checkBeast(this.role)
             }
         },
         methods: {
@@ -52,14 +59,17 @@
     border-radius: 20px;
     width: 36px;
     height: 36px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
   }
 
   .role-damage {
     position: absolute;
     width: 16px;
     height: 16px;
-    top: 12px;
-    left: 12px;
   }
 
   .role-damage .part1 {

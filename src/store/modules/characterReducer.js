@@ -13,7 +13,7 @@ let state = {
       rankedLose: 129,
       champWin: 50,
       champLose: 4,
-      role: 'damage',
+      role: 'knight',
       avatar: '/static/charactersImage/nami.svg'
     },
     {
@@ -27,9 +27,51 @@ let state = {
       rankedLose: 129,
       champWin: 50,
       champLose: 4,
-      role: 'damage',
+      role: 'knight',
       avatar: '/static/charactersImage/missfortune.svg'
-    }
+    },
+    {
+      nick:'Krozenio',
+      ability1: '/static/skills/arcanecomet.svg',
+      ability2: '/static/skills/domination.svg',
+      ability3: '/static/skills/flash.svg',
+      ability4: '/static/skills/teleport.svg',
+      name: 'Lux',
+      rankedWin: 72,
+      rankedLose: 129,
+      champWin: 50,
+      champLose: 4,
+      role: 'tank',
+      avatar: '/static/charactersImage/lux.svg'
+    },
+    {
+      nick:'Hakkai',
+      ability1: '/static/skills/arcanecomet.svg',
+      ability2: '/static/skills/domination.svg',
+      ability3: '/static/skills/flash.svg',
+      ability4: '/static/skills/teleport.svg',
+      name: 'Lee Sin',
+      rankedWin: 72,
+      rankedLose: 129,
+      champWin: 50,
+      champLose: 4,
+      role: 'mage',
+      avatar: '/static/charactersImage/leesin.svg'
+    },
+    {
+      nick:'kingatlas10',
+      ability1: '/static/skills/arcanecomet.svg',
+      ability2: '/static/skills/domination.svg',
+      ability3: '/static/skills/flash.svg',
+      ability4: '/static/skills/teleport.svg',
+      name: 'Khazix',
+      rankedWin: 72,
+      rankedLose: 129,
+      champWin: 50,
+      champLose: 4,
+      role: 'beast',
+      avatar: '/static/charactersImage/khazix.svg'
+    },
   ],
   enemies: [
     {
@@ -43,6 +85,7 @@ let state = {
       rankedLose: 129,
       champWin: 50,
       champLose: 4,
+      role:'knight',
       avatar: '/static/charactersImage/jax.svg'
     },
     {
@@ -56,8 +99,51 @@ let state = {
       rankedLose: 129,
       champWin: 50,
       champLose: 4,
+      role:'knight',
       avatar: '/static/charactersImage/heimerdinger.svg'
     },
+    {
+      nick:'its me rulez',
+      ability1: '/static/skills/arcanecomet.svg',
+      ability2: '/static/skills/domination.svg',
+      ability3: '/static/skills/flash.svg',
+      ability4: '/static/skills/teleport.svg',
+      name: 'Draven',
+      rankedWin: 72,
+      rankedLose: 129,
+      champWin: 50,
+      champLose: 4,
+      role: 'tank',
+      avatar: '/static/charactersImage/draven.svg'
+    },
+    {
+      nick:'Diosa eterna',
+      ability1: '/static/skills/arcanecomet.svg',
+      ability2: '/static/skills/domination.svg',
+      ability3: '/static/skills/flash.svg',
+      ability4: '/static/skills/teleport.svg',
+      name: 'Caitlyn',
+      rankedWin: 72,
+      rankedLose: 129,
+      champWin: 50,
+      champLose: 4,
+      role: 'mage',
+      avatar: '/static/charactersImage/caitlyn.svg'
+    },
+    {
+      nick:'hanstoppable',
+      ability1: '/static/skills/arcanecomet.svg',
+      ability2: '/static/skills/domination.svg',
+      ability3: '/static/skills/flash.svg',
+      ability4: '/static/skills/teleport.svg',
+      name: 'Bard',
+      rankedWin: 72,
+      rankedLose: 129,
+      champWin: 50,
+      champLose: 4,
+      role: 'beast',
+      avatar: '/static/charactersImage/bard.svg'
+    }
   ],
   idList: [],
   pagination: {
