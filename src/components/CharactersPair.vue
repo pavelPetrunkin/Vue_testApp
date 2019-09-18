@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="players-pair">
+      <div class="hidden-hover"></div>
       <div class="first-player">
         <div class="player-info">
           <div class="header">
@@ -109,6 +110,7 @@
 <style scoped>
 
   .players-pair {
+    position: relative;
     display: flex;
     justify-content: center;
     height: 140px;
@@ -157,6 +159,8 @@
   .first-player {
     display: flex;
     margin-right: 131px;
+    z-index: 1;
+    position: relative;
   }
 
   .first-player .stats {
@@ -166,6 +170,8 @@
   .second-player {
     display: flex;
     flex-direction: row-reverse;
+    position: relative;
+    z-index: 1;
   }
 
   .second-player .header {
@@ -343,6 +349,17 @@
     right: 3px;
     letter-spacing: -1px;
     word-spacing: 1px;
+  }
+
+  .hidden-hover {
+    position: absolute;
+    width: 105rem;
+    height: 100%;
+  }
+
+  .hidden-hover:hover {
+    background: linear-gradient(270deg, #44465D 0%, rgba(68, 70, 93, 0) 100%);
+    transform: matrix(-1, 0, 0, 1, 0, 0);
   }
 
 </style>
