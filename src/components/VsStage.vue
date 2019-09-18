@@ -144,7 +144,7 @@ export default {
   }
 
   .characters-list {
-    padding: 27px 300px 0 300px;
+    padding: 27px 252px 0 252px;
   }
 
   .middle-border {

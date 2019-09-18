@@ -7,7 +7,7 @@
             <p class="name">{{character.name}}</p>
             <p class="nick"> {{character.nick}}</p>
           </div>
-          <div>
+          <div class="character-info">
             <div class="stats">
               <div>
                 <p>Champ stats:</p>
@@ -17,18 +17,18 @@
                 <p>Ranked stats:</p>
                 <p>{{character.champWin + '/' + character.champLose}} - 64.0%</p>
               </div>
-              <div class="skills">
-                <img :src="character.ability1" alt="">
-                <img :src="character.ability3" alt="">
-                <img :src="character.ability2" alt="">
-                <img :src="character.ability4" alt="">
+              <div class="stats-name">
+                <p>Debuff Tag</p>
+                <p>Sub Tag</p>
+                <p>Sub Tag</p>
+                <p>Main Tag</p>
               </div>
             </div>
-            <div class="stats-name">
-              <p>Debuff Tag</p>
-              <p>Sub Tag</p>
-              <p>Sub Tag</p>
-              <p>Main Tag</p>
+            <div class="skills">
+              <img :src="character.ability1" alt="">
+              <img :src="character.ability3" alt="">
+              <img :src="character.ability2" alt="">
+              <img :src="character.ability4" alt="">
             </div>
           </div>
 
@@ -45,28 +45,29 @@
             <p class="nick"> {{enemy.nick}}</p>
           </div>
           <div>
-            <div class="stats">
+            <div class="character-info">
               <div class="skills">
                 <img :src="enemy.ability3" alt="">
                 <img :src="enemy.ability1" alt="">
                 <img :src="enemy.ability4" alt="">
                 <img :src="enemy.ability2" alt="">
               </div>
-              <div>
-                <p>Champ stats:</p>
-                <p>50/4 - 36.5%</p>
+              <div class="stats">
+                <div>
+                  <p>Champ stats:</p>
+                  <p>50/4 - 36.5%</p>
+                </div>
+                <div>
+                  <p>Ranked stats:</p>
+                  <p>{{enemy.champWin + '/' + enemy.champLose}} - 64.0%</p>
+                </div>
+                <div class="stats-name">
+                  <p>Debuff Tag</p>
+                  <p>Sub Tag</p>
+                  <p>Sub Tag</p>
+                  <p>Main Tag</p>
+                </div>
               </div>
-              <div>
-                <p>Ranked stats:</p>
-                <p>{{enemy.champWin + '/' + enemy.champLose}} - 64.0%</p>
-              </div>
-            </div>
-            <div class="stats-name">
-              <p>Debuff Tag</p>
-              <p>Sub Tag</p>
-              <p>Sub Tag</p>
-              <p>Main Tag</p>
-
             </div>
           </div>
         </div>
@@ -131,17 +132,9 @@
     margin-right: 131px;
   }
 
-  .first-player:nth-child(n+1) {
-    margin-right: 161px;
-  }
-
   .second-player {
     display: flex;
     flex-direction: row-reverse;
-  }
-
-  .first-player .stats {
-    justify-content: flex-end;
   }
 
   .first-player .stats-name {
@@ -160,14 +153,30 @@
 
   .skills img {
     flex-basis: 41%;
+    height: 20px;
+    background: #00000D;
+  }
+
+  .character-info {
+    display: flex;
+  }
+
+  .first-player .stats {
+    justify-content: flex-end;
   }
 
   .stats {
     display: flex;
+    flex-wrap: wrap;
+  }
+
+  .stats p {
+    margin: 0;
   }
 
   .stats-name {
     display: flex;
+    flex-basis: 100%;
   }
 
 </style>
