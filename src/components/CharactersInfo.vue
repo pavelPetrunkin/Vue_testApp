@@ -6,6 +6,7 @@
           <div @click="closeCharactersInfo" class="outer-close" ></div>
           <div class="modal-wrapper">
             <div class="modal-container">
+              <FirstTeamName :teamName="this.firstTeam.name"/>
               <div class="modal-header">
                 <slot name="header">
                   default header
@@ -31,9 +32,16 @@
 
 <script type="text/javascript">
 
+import FirstTeamName from './FirstTeamName'
+import SecondTeamName from './SecondTeamName'
+
 export default {
   name: 'CharactersInfo',
-  props: ['open'],
+  props: ['open','characters', 'enemies', 'firstTeam', 'secondTeam'],
+  components: {
+    FirstTeamName,
+    SecondTeamName
+  },
   mounted () {
   },
   methods: {
@@ -69,14 +77,19 @@ export default {
   }
 
   .modal-container {
-    width: 300px;
-    margin: 0 auto;
     padding: 20px 30px;
     background-color: #fff;
     border-radius: 2px;
+    -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
     box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+    -webkit-transition: all .3s ease;
     transition: all .3s ease;
     font-family: Helvetica, Arial, sans-serif;
+    position: relative;
+    z-index: 3;
+    height: 789px;
+    width: 181px;
+    bottom: 203px;
   }
 
   .modal-header h3 {

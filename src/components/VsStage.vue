@@ -1,6 +1,11 @@
 <template>
   <div class="vs-info">
-    <CharactersInfo :open="isOpenCharactersInfo"/>
+    <CharactersInfo
+      :characters="characters"
+      :enemies="enemies"
+      :firstTeam="firstTeam"
+      :secondTeam="secondTeam"
+      :open="isOpenCharactersInfo"/>
     <div id="header-id" class="header">
       <FirstTeamName :teamName="this.firstTeam.name"/>
       <div>
