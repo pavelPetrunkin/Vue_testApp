@@ -5,7 +5,9 @@
       :enemies="enemies"
       :firstTeam="firstTeam"
       :secondTeam="secondTeam"
-      :open="isOpenCharactersInfo"/>
+      :open="isOpenCharactersInfo"
+      :selectorIndex="selectorIndex"
+    />
     <div id="header-id" class="header">
       <FirstTeamName :teamName="this.firstTeam.name"/>
       <div>

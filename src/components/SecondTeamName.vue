@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="second-team-name">
     <div class="second-team-background"></div>
     <h2 class="second-team-title">{{this.teamName}}</h2>
   </div>

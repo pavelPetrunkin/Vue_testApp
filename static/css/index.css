@@ -97,6 +97,39 @@ body {
   position: absolute;
   left: 110px;
   width: 200px;
+  margin: 0;
+  z-index: 1;
+  color: #FFFFFF;
+}
+
+.modal-container .second-team-name {
+  position: absolute;
+  width: 0;
+  height: 0;
+  right: 403px;
+}
+
+.modal-container .second-team-background {
+  bottom: 3px;
+  left: 0;
+  background: #0082B1;
+  position: absolute;
+  width: 344px;
+  height: 36px;
+  clip-path: polygon(0% 0%, 86% 0%, 96% 100%, 11% 100%);
+}
+
+.modal-container .second-team-name h2 {
+  font-family: Work Sans,serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+  position: absolute;
+  left: 64px;
+  width: 200px;
+  margin: 0;
   z-index: 1;
   color: #FFFFFF;
 }
