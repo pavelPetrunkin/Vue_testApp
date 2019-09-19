@@ -27,16 +27,7 @@
                 <p>Main Tag</p>
               </div>
             </div>
-            <div class="skills">
-              <div class="abilities-row1">
-                <img :src="character.ability1" alt="">
-                <img :src="character.ability2" alt="">
-              </div>
-              <div class="abilities-row2">
-                <img :src="character.ability3" alt="">
-                <img :src="character.ability4" alt="">
-              </div>
-            </div>
+            <Skills :character="character" />
           </div>
         </div>
         <div class="avatar">
@@ -52,16 +43,7 @@
           </div>
           <div>
             <div class="character-info">
-              <div class="skills">
-                <div class="abilities-row1">
-                  <img :src="enemy.ability3" alt="">
-                  <img :src="enemy.ability4" alt="">
-                </div>
-                <div class="abilities-row2">
-                  <img :src="enemy.ability1" alt="">
-                  <img :src="enemy.ability2" alt="">
-                </div>
-              </div>
+             <Skills :character="enemy" />
               <div class="stats-info">
                 <div class="stats">
                   <div>
@@ -92,13 +74,12 @@
 </template>
 
 <script type="text/javascript">
-
+import Skills from './Skills'
 export default {
   name: 'CharactersPair',
   props: ['character', 'enemy', 'index', 'openModal', 'isOpen', 'selectorIndex'],
-  mounted () {
-  },
-  computed: {
+  components: {
+    Skills
   },
   methods: {
     open () {
@@ -106,7 +87,6 @@ export default {
     }
   }
 }
-
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
