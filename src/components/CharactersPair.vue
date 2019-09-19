@@ -1,7 +1,7 @@
 <template>
   <div>
     <div @click="this.open" class="players-pair">
-      <div class="hidden-hover" :id="'players-row'+this.index"></div>
+      <div class="hidden-hover" v-if="this.isOpen && this.index === this.selectorIndex"></div>
       <div class="first-player">
         <div class="player-info">
           <div class="header">
@@ -95,7 +95,7 @@
 
 export default {
   name: 'CharactersPair',
-  props: ['character', 'enemy', 'index', 'openModal'],
+  props: ['character', 'enemy', 'index', 'openModal', 'isOpen', 'selectorIndex'],
   mounted () {
   },
   computed: {
@@ -363,9 +363,6 @@ export default {
     position: absolute;
     width: 105rem;
     height: 100%;
-  }
-
-  .hidden-hover:hover {
     background: linear-gradient(270deg, #44465D 0%, rgba(68, 70, 93, 0) 100%);
     transform: matrix(-1, 0, 0, 1, 0, 0);
   }

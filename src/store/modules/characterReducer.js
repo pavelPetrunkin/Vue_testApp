@@ -149,7 +149,8 @@ let state = {
   secondTeam: {
     name: 'DOLOR SIT AMET'
   },
-  isOpenCharactersInfo: false
+  isOpenCharactersInfo: false,
+  selectorIndex: ''
 }
 
 let getters = {
@@ -163,18 +164,20 @@ let getters = {
 
 let mutations = {
   OPEN_CHARACTERS_INFO: (state, payload) => {
-    state.isOpenCharactersInfo = payload
+    state.isOpenCharactersInfo = payload.open
+    state.selectorIndex = payload.index
   },
   CLOSE_CHARACTERS_INFO: (state, payload) => {
     state.isOpenCharactersInfo = payload
+    state.selectorIndex = ''
   }
 }
 
 let actions = {
   CHARACTERS_INFO: async (context, payload) => {
-    payload ? context.commit('OPEN_CHARACTERS_INFO', payload)
-      : context.commit('CLOSE_CHARACTERS_INFO', payload)
-  },
+    payload.open ? context.commit('OPEN_CHARACTERS_INFO', payload)
+      : context.commit('CLOSE_CHARACTERS_INFO', false)
+  }
 }
 
 export default {

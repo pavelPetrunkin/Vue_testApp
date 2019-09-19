@@ -6,6 +6,7 @@
       :secondTeam="data.secondTeam"
       :firstTeam="data.firstTeam"
       :isOpenCharactersInfo="data.isOpenCharactersInfo"
+      :selectorIndex="data.selectorIndex"
     />
     <div id="game-stage-background"></div>
 
@@ -28,7 +29,8 @@ export default {
         enemies: this.$store.getters.STATE.enemies,
         firstTeam: this.$store.getters.STATE.firstTeam,
         secondTeam: this.$store.getters.STATE.secondTeam,
-        isOpenCharactersInfo: this.$store.getters.STATE.isOpenCharactersInfo
+        isOpenCharactersInfo: this.$store.getters.STATE.isOpenCharactersInfo,
+        selectorIndex: this.$store.getters.STATE.selectorIndex
       }
     }
   }

@@ -24,7 +24,9 @@
         :enemy="pair[1]"
         :key="index"
         :index="index"
-        v-on:openModal="openCharactersInfo"
+        :selectorIndex="selectorIndex"
+        :isOpen="isOpenCharactersInfo"
+        @openModal="openCharactersInfo"
       />
     </div>
   </div>
@@ -48,7 +50,7 @@ function roleSplit (characters) {
 
 export default {
   name: 'VsStage',
-  props: ['characters', 'enemies', 'firstTeam', 'secondTeam', 'isOpenCharactersInfo'],
+  props: ['characters', 'enemies', 'firstTeam', 'secondTeam', 'isOpenCharactersInfo', 'selectorIndex'],
   components: {
     CharactersPair,
     LineRoll,
@@ -67,8 +69,8 @@ export default {
     }
   },
   methods: {
-    openCharactersInfo () {
-      return this.$store.dispatch('CHARACTERS_INFO', true)
+    openCharactersInfo (payload) {
+      return this.$store.dispatch('CHARACTERS_INFO', payload)
     }
   }
 }
