@@ -1,5 +1,3 @@
-import axios from 'axios'
-
 let state = {
   characters: [
     {
@@ -145,14 +143,13 @@ let state = {
       avatar: '/static/charactersImage/bard.svg'
     }
   ],
-  idList: [],
-  pagination: {
-    pageNumber: 1,
-    pageItems: 3
+  firstTeam: {
+    name: 'LOREM IPSUM'
   },
-  inputText: '',
-  filter: 'showAll',
-  editing: ''
+  secondTeam: {
+    name: 'DOLOR SIT AMET'
+  },
+  isOpenCharactersInfo: false
 }
 
 let getters = {
@@ -165,40 +162,19 @@ let getters = {
 }
 
 let mutations = {
-  SET_CHARACTER: (state, payload) => {
-    state.characters = payload
+  OPEN_CHARACTERS_INFO: (state, payload) => {
+    state.isOpenCharactersInfo = payload
   },
-
-  CHANGE_PAGE: (state, payload) => {
-    state.pagination.pageNumber = payload
-  },
-
-  CHECK_CHARACTER: (state, payload) => {
-    state.characters = payload.slice()
-  },
-
-  ADD_CHARACTER: (state, payload) => {
-    state.characters = payload.characters.slice()
-    state.idList = payload.idList.slice()
+  CLOSE_CHARACTERS_INFO: (state, payload) => {
+    state.isOpenCharactersInfo = payload
   }
 }
 
 let actions = {
-  GET_CHARACTER: async (context, payload) => {
-    let {data} = await axios.get('http://yourwebsite.com/api/todo')
-    context.commit('SET_CHARACTER', data)
+  CHARACTERS_INFO: async (context, payload) => {
+    payload ? context.commit('OPEN_CHARACTERS_INFO', payload)
+      : context.commit('CLOSE_CHARACTERS_INFO', payload)
   },
-
-  SAVE_CHARACTER: async (context, payload) => {
-    // let {data} = await axios.post('http://yourwebsite.com/api/todo');
-    context.commit('ADD_CHARACTER', payload)
-  },
-  CHANGE_CHECK: (context, payload) => {
-    context.commit('CHECK_CHARACTER', payload)
-  },
-  GET_PAGE: (context, payload) => {
-    context.commit('CHANGE_PAGE', payload)
-  }
 }
 
 export default {

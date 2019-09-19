@@ -1,10 +1,8 @@
 <template>
   <div class="vs-info">
+    <CharactersInfo :open="isOpenCharactersInfo"/>
     <div id="header-id" class="header">
-      <div>
-        <div class="first-team-background"></div>
-        <h2 class="first-team-title">LOREM IPSUM</h2>
-      </div>
+      <FirstTeamName :teamName="this.firstTeam.name"/>
       <div>
         <div class="stage-background"></div>
         <div class="middle-border"></div>
@@ -17,10 +15,7 @@
         <h2 class="game-stage-title">TEAM COMPARISON</h2>
       </div>
 
-      <div>
-        <div class="second-team-background"></div>
-        <h2 class="second-team-title">DOLOR SIT AMET</h2>
-      </div>
+      <SecondTeamName :teamName="this.secondTeam.name"/>
     </div>
     <div class="characters-list">
       <CharactersPair
@@ -28,16 +23,20 @@
         :character="pair[0]"
         :enemy="pair[1]"
         :key="index"
+        :index="index"
+        v-on:openModal="openCharactersInfo"
       />
-
     </div>
   </div>
 </template>
 
 <script type="text/javascript">
 
+import CharactersInfo from './CharactersInfo'
 import CharactersPair from './CharactersPair'
 import LineRoll from './LineRoll'
+import FirstTeamName from './FirstTeamName'
+import SecondTeamName from './SecondTeamName'
 
 function pairSplit (characters, enemies) {
   return characters.map((item, index) => [item, enemies[index]])
@@ -49,10 +48,13 @@ function roleSplit (characters) {
 
 export default {
   name: 'VsStage',
-  props: ['characters', 'enemies'],
+  props: ['characters', 'enemies', 'firstTeam', 'secondTeam', 'isOpenCharactersInfo'],
   components: {
     CharactersPair,
-    LineRoll
+    LineRoll,
+    FirstTeamName,
+    SecondTeamName,
+    CharactersInfo
   },
   mounted () {
   },
@@ -65,9 +67,9 @@ export default {
     }
   },
   methods: {
-    checkTodo (index) {
-      this.$emit('checkOne', index)
-    },
+    openCharactersInfo () {
+      return this.$store.dispatch('CHARACTERS_INFO', true)
+    }
   }
 }
 </script>
@@ -133,38 +135,9 @@ export default {
     color: #FFFFFF;
   }
 
-  .first-team-background {
-    background: #0082B1;
-    position: absolute;
-    width: 344px;
-    height: 36px;
-    left: 312px;
-    clip-path: polygon(0% 0%, 86% 0%, 96% 100%, 11% 100%);
-  }
-
-  .second-team-background {
-    background: #B63129;
-    position: absolute;
-    width: 328px;
-    height: 36px;
-    right: 311px;
-    clip-path: polygon(10% 0%, 100% 0%, 88% 100%, 0% 100%);
-  }
-
-  .first-team-title {
-    position: absolute;
-    bottom: 10px;
-    left: 74px;
-  }
-
   .game-stage-title {
     top: 1px;
     right: 10px;
-  }
-
-  .second-team-title {
-    bottom: 10px;
-    right: 106px;
   }
 
 </style>

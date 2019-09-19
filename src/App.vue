@@ -3,6 +3,9 @@
     <router-view
       :characters="data.characters"
       :enemies="data.enemies"
+      :secondTeam="data.secondTeam"
+      :firstTeam="data.firstTeam"
+      :isOpenCharactersInfo="data.isOpenCharactersInfo"
     />
     <div id="game-stage-background"></div>
 
@@ -18,32 +21,15 @@ export default {
   components: {
     VsStage
   },
-  mounted () {
-    // console.log(this.characters)
-  },
   computed: {
     data () {
       return {
         characters: this.$store.getters.STATE.characters,
-        enemies: this.$store.getters.STATE.enemies
+        enemies: this.$store.getters.STATE.enemies,
+        firstTeam: this.$store.getters.STATE.firstTeam,
+        secondTeam: this.$store.getters.STATE.secondTeam,
+        isOpenCharactersInfo: this.$store.getters.STATE.isOpenCharactersInfo
       }
-    }
-  },
-
-  methods: {
-    createTodo (newTodo) {
-      this.idList.unshift(newTodo.id)
-      this.characters.unshift(newTodo)
-      let payload = {idList: this.idList.slice(), characters: this.characters.slice()}
-      this.$store.dispatch('SAVE_TODO', payload)
-    },
-    checkTodo (index) {
-      this.characters[index].checked = !this.characters[index].checked
-      let payload = {characters: this.characters.slice()}
-      this.$store.dispatch('CHANGE_CHECK', payload)
-    },
-    changePage (page) {
-      this.$store.dispatch('GET_PAGE', page)
     }
   }
 }

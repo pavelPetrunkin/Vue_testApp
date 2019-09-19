@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="players-pair">
-      <div class="hidden-hover"></div>
+    <div @click="this.open" class="players-pair">
+      <div class="hidden-hover" :id="'players-row'+this.index"></div>
       <div class="first-player">
         <div class="player-info">
           <div class="header">
@@ -95,15 +95,18 @@
 
 export default {
   name: 'CharactersPair',
-  props: ['character', 'enemy'],
+  props: ['character', 'enemy', 'index', 'openModal'],
   mounted () {
   },
   computed: {
-
   },
   methods: {
+    open () {
+      return this.$emit('openModal', {open: true, index: this.index})
+    }
   }
 }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

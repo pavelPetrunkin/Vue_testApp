@@ -7,11 +7,6 @@ body {
   margin-right: 160px;
 }
 
-
-.characters-list div:not(:first-child) .second-player .nick {
-
-}
-
 .characters-list div:not(:first-child) .second-player .skills {
   position: relative;
   left: 15px;
@@ -32,7 +27,6 @@ body {
   left: 2px;
 }
 
-
 .characters-list div:not(:first-child) .second-player .header {
   padding-left: 20px;
 }
@@ -50,9 +44,6 @@ body {
 .characters-list > div:first-child .first-player .player-info {
   position: relative;
   left: 2px;
-}
-
-.characters-list div:not(:first-child) .first-player .name {
 }
 
 .characters-list > div:first-child .first-player .header {
