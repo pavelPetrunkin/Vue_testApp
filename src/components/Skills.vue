@@ -1,10 +1,10 @@
 <template>
   <div class="skills">
-    <div class="abilities-row1">
+    <div class="abilities abilities-row1">
       <img :src="character.ability1" alt="">
       <img :src="character.ability2" alt="">
     </div>
-    <div class="abilities-row2">
+    <div class="abilities abilities-row2">
       <img :src="character.ability3" alt="">
       <img :src="character.ability4" alt="">
     </div>
@@ -190,5 +190,7 @@ export default {
     letter-spacing: -1px;
     word-spacing: 1px;
   }
+
+
 
 </style>

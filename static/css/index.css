@@ -133,3 +133,17 @@ body {
   z-index: 1;
   color: #FFFFFF;
 }
+
+.modal-container .skills {
+  display: flex;
+  padding-top: 19px;
+  height: 57px;
+  justify-content: space-between;
+  width: 57px;
+}
+
+.modal-container .abilities {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

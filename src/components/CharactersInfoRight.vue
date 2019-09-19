@@ -11,6 +11,7 @@
     </div>
     <p v-if="parseInt(this.selectorIndex) === 0" class="my-nick-row-right">{{this.enemies[selectorIndex].nick}}</p>
     <p v-if="parseInt(this.selectorIndex) !== 0" class="other-nick-row-right">{{this.enemies[selectorIndex].nick}}</p>
+    <Skills :character="enemies[selectorIndex]"/>
 
   </div>
 </template>
@@ -18,12 +19,14 @@
 <script type="text/javascript">
 
 import SecondTeamName from './SecondTeamName'
+import Skills from './Skills'
 
 export default {
   name: 'CharactersInfoRight',
   props: ['enemies', 'secondTeam', 'selectorIndex'],
   components: {
-    SecondTeamName
+    SecondTeamName,
+    Skills
   },
   mounted () {
   }

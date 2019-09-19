@@ -11,18 +11,20 @@
     </div>
     <p v-if="parseInt(this.selectorIndex) === 0" class="my-row-nick-left">{{this.characters[selectorIndex].nick}}</p>
     <p v-if="parseInt(this.selectorIndex) !== 0" class="other-row-nick-left">{{this.characters[selectorIndex].nick}}</p>
-
+    <Skills :character="characters[selectorIndex]"/>
   </div>
 </template>
 
 <script type="text/javascript">
 
 import FirstTeamName from './FirstTeamName'
+import Skills from './Skills'
 
 export default {
   name: 'CharactersInfoLeft',
   props: ['characters', 'firstTeam', 'selectorIndex'],
   components: {
+    Skills,
     FirstTeamName
   },
   mounted () {
