@@ -134,12 +134,26 @@ body {
   color: #FFFFFF;
 }
 
-.modal-container .skills {
+.modal-wrapper > .div:first-child #modal-skills {
+  padding-top: 0;
+}
+
+.modal-wrapper .modal-container #modal-skills {
   display: flex;
   padding-top: 19px;
   height: 57px;
   justify-content: space-between;
   width: 57px;
+  margin: 0 52px;
+}
+
+.modal-wrapper > .modal-container:first-child #modal-skills {
+  display: flex;
+  padding-top: 19px;
+  height: 57px;
+  justify-content: space-between;
+  width: 57px;
+  margin: 0 71px;
 }
 
 .modal-container .abilities {
@@ -147,3 +161,4 @@ body {
   flex-direction: column;
   justify-content: space-between;
 }
+
