@@ -118,6 +118,7 @@ export default {
 
   .first-player .header {
     justify-content: flex-end;
+    padding-right: 15px;
   }
 
   .name {
@@ -133,6 +134,7 @@ export default {
     height: 24px;
     display: flex;
     align-items: center;
+
   }
 
   .avatar {
@@ -150,10 +152,13 @@ export default {
     font-size: 18px;
     line-height: 21px;
     color: #EAEAEE;
+    width: 159px;
+    text-align: right;
   }
 
   .second-player .nick {
-    margin-right: 60px;
+    width: 161px;
+    text-align: left;
   }
 
   .first-player {
@@ -177,7 +182,6 @@ export default {
   .second-player .header {
     flex-direction: row-reverse;
     justify-content: flex-end;
-    left: 4px;
     position: relative;
   }
 

@@ -9,7 +9,7 @@ body {
 
 
 .characters-list div:not(:first-child) .second-player .nick {
-  left: 16px;
+
 }
 
 .characters-list div:not(:first-child) .second-player .skills {
@@ -33,8 +33,8 @@ body {
 }
 
 
-.characters-list div:not(:first-child) .second-player .name {
-  left: 60px;
+.characters-list div:not(:first-child) .second-player .header {
+  padding-left: 20px;
 }
 
 .characters-list div:not(:first-child) .first-player .player-info {
@@ -53,15 +53,14 @@ body {
 }
 
 .characters-list div:not(:first-child) .first-player .name {
-  right: 80px;
 }
 
-.characters-list > div:first-child .first-player .header p:first-child {
-  right: 37px;
+.characters-list > div:first-child .first-player .header {
+  padding-right: 6px;
 }
 
-.characters-list .first-player .header p:last-child {
-  right: 15px;
+.characters-list > div:first-child .second-player .header {
+  padding-left: 4px;
 }
 
 .characters-list div:not(:first-child)  .first-player .stats {
@@ -73,3 +72,4 @@ body {
   position: relative;
   left: 2px;
 }
+
