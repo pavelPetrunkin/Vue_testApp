@@ -31,6 +31,7 @@
       <p>Sub Tag</p>
       <p>Sub Tag</p>
       <p>Debuff Tag</p>
+      <ModalAvatars :characters="enemies" :selectorIndex="selectorIndex"></ModalAvatars>
     </div>
   </div>
 </template>
@@ -40,6 +41,7 @@
 import SecondTeamName from './SecondTeamName'
 import Skills from './Skills'
 import LineRoll from './LineRoll'
+import ModalAvatars from './ModalAvatars'
 
 export default {
   name: 'CharactersInfoRight',
@@ -47,7 +49,8 @@ export default {
   components: {
     SecondTeamName,
     Skills,
-    LineRoll
+    LineRoll,
+    ModalAvatars
   },
   methods: {
     checkStats () {
