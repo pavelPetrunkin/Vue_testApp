@@ -10,7 +10,7 @@
                 :selectorIndex="selectorIndex"
                 :firstTeam="firstTeam.name"/>
               <CharactersInfoRight
-                :enemies="enemies"
+                :characters="enemies"
                 :selectorIndex="selectorIndex"
                 :secondTeam="secondTeam.name"/>
           </div>

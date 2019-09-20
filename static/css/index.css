@@ -273,3 +273,24 @@ body {
   left: 220px;
 }
 
+.modal-wrapper > .modal-container:first-child .my-row .roles-modal {
+  left: 170px;
+  top: 205px;
+}
+
+.modal-wrapper > .modal-container:first-child .other-row .roles-modal {
+  left: 170px;
+  top: 226px;
+}
+
+.roles-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 62px;
+  position: absolute;
+  right: 170px;
+  height: 190px;
+  top: 226px;
+}

@@ -1,29 +1,29 @@
 <template>
   <div class="modal-container">
     <LineRoll
-      :role="enemies[selectorIndex].role"
+      :role="characters[selectorIndex].role"
       :selectorIndex="selectorIndex"></LineRoll>
     <SecondTeamName :teamName="this.secondTeam"/>
     <div class="my-row-avatar-right" v-if="parseInt(this.selectorIndex) === 0">
-      <img :src="this.enemies[this.selectorIndex].avatar" alt="">
-      <p>{{this.enemies[selectorIndex].name}}</p>
+      <img :src="this.characters[this.selectorIndex].avatar" alt="">
+      <p>{{this.characters[selectorIndex].name}}</p>
     </div>
     <div class="other-avatar-right" v-if="parseInt(this.selectorIndex) !== 0">
-      <img :src="this.enemies[this.selectorIndex].avatar" alt="">
-      <p>{{this.enemies[selectorIndex].name}}</p>
+      <img :src="this.characters[this.selectorIndex].avatar" alt="">
+      <p>{{this.characters[selectorIndex].name}}</p>
     </div>
-    <p v-if="parseInt(this.selectorIndex) === 0" class="my-nick-row-right">{{this.enemies[selectorIndex].nick}}</p>
-    <p v-if="parseInt(this.selectorIndex) !== 0" class="other-nick-row-right">{{this.enemies[selectorIndex].nick}}</p>
-    <Skills :character="enemies[selectorIndex]"
+    <p v-if="parseInt(this.selectorIndex) === 0" class="my-nick-row-right">{{this.characters[selectorIndex].nick}}</p>
+    <p v-if="parseInt(this.selectorIndex) !== 0" class="other-nick-row-right">{{this.characters[selectorIndex].nick}}</p>
+    <Skills :character="characters[selectorIndex]"
             :selectorIndex="selectorIndex"/>
     <div :class="'stats' + checkStats()">
       <div>
         <p>Ranked Stats:</p>
-        <p>{{enemies[selectorIndex].rankedWin + '/' + enemies[selectorIndex].rankedLose}} - 64.0%</p>
+        <p>{{characters[selectorIndex].rankedWin + '/' + characters[selectorIndex].rankedLose}} - 64.0%</p>
       </div>
       <div>
         <p>Champ Stats:</p>
-        <p>{{enemies[selectorIndex].champWin + '/' + enemies[selectorIndex].champLose}} - 36.5%</p>
+        <p>{{characters[selectorIndex].champWin + '/' + characters[selectorIndex].champLose}} - 36.5%</p>
       </div>
     </div>
     <div :class="'stats-name' + checkStatsName()">
@@ -31,7 +31,8 @@
       <p>Sub Tag</p>
       <p>Sub Tag</p>
       <p>Debuff Tag</p>
-      <ModalAvatars :characters="enemies" :selectorIndex="selectorIndex"></ModalAvatars>
+      <ModalAvatars :characters="characters" :selectorIndex="selectorIndex"></ModalAvatars>
+      <ModalRoles :characters="characters" :selectorIndex="selectorIndex" class="roles-modal"/>
     </div>
   </div>
 </template>
@@ -42,15 +43,17 @@ import SecondTeamName from './SecondTeamName'
 import Skills from './Skills'
 import LineRoll from './LineRoll'
 import ModalAvatars from './ModalAvatars'
+import ModalRoles from './ModalRoles'
 
 export default {
   name: 'CharactersInfoRight',
-  props: ['enemies', 'secondTeam', 'selectorIndex'],
+  props: ['characters', 'secondTeam', 'selectorIndex'],
   components: {
     SecondTeamName,
     Skills,
     LineRoll,
-    ModalAvatars
+    ModalAvatars,
+    ModalRoles
   },
   methods: {
     checkStats () {
