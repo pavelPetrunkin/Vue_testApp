@@ -10,6 +10,11 @@
                 :selectorIndex="selectorIndex"
                 :firstTeam="firstTeam.name"/>
             <ModalHelp :itemsSlot="itemsSlot" :spellSlot="spellSlot"/>
+            <ModalEnemyHelp
+              :spellSlot="spellSlot"
+              :enemies="enemies"
+              :characters="characters"
+              :selectorIndex="selectorIndex"/>
               <CharactersInfoRight
                 :characters="enemies"
                 :selectorIndex="selectorIndex"
@@ -26,6 +31,7 @@
 import CharactersInfoLeft from './CharactersInfoLeft'
 import CharactersInfoRight from './CharactersInfoRight'
 import ModalHelp from './ModalHelp'
+import ModalEnemyHelp from './ModalEnemyHelp'
 
 export default {
   name: 'CharactersInfo',
@@ -37,7 +43,8 @@ export default {
   components: {
     CharactersInfoLeft,
     CharactersInfoRight,
-    ModalHelp
+    ModalHelp,
+    ModalEnemyHelp
   },
   methods: {
     closeCharactersInfo () {
@@ -55,7 +62,7 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, .3);
+    background-color: rgba(0, 0, 0, .5);
     display: table;
     transition: opacity .3s ease;
   }
