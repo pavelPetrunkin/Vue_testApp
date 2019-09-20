@@ -1,6 +1,9 @@
 <template>
   <div class="modal-container">
-  <SecondTeamName :teamName="this.secondTeam"/>
+    <LineRoll
+      :role="enemies[selectorIndex].role"
+      :selectorIndex="selectorIndex"></LineRoll>
+    <SecondTeamName :teamName="this.secondTeam"/>
     <div class="my-row-avatar-right" v-if="parseInt(this.selectorIndex) === 0">
       <img :src="this.enemies[this.selectorIndex].avatar" alt="">
       <p>{{this.enemies[selectorIndex].name}}</p>
@@ -36,13 +39,15 @@
 
 import SecondTeamName from './SecondTeamName'
 import Skills from './Skills'
+import LineRoll from './LineRoll'
 
 export default {
   name: 'CharactersInfoRight',
   props: ['enemies', 'secondTeam', 'selectorIndex'],
   components: {
     SecondTeamName,
-    Skills
+    Skills,
+    LineRoll
   },
   methods: {
     checkStats () {

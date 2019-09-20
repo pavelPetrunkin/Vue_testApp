@@ -214,3 +214,19 @@ body {
 .modal-wrapper .stats-name p {
   margin-bottom: 10px;
 }
+
+.stats-name.other-row {
+  top: 34px;
+}
+
+.modal-wrapper .role-modal {
+  background: black;
+  position: absolute;
+  top: 70px;
+  right: 220px;
+}
+
+.modal-wrapper > .modal-container:first-child .role-modal {
+  left: 220px;
+}
+

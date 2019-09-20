@@ -111,7 +111,7 @@ let state = {
       rankedLose: 129,
       champWin: 50,
       champLose: 4,
-      role: '/static/roles/middle.svg',
+      role: '/static/roles/jungle.svg',
       avatar: '/static/charactersImage/draven.svg'
     },
     {
@@ -125,7 +125,7 @@ let state = {
       rankedLose: 129,
       champWin: 50,
       champLose: 4,
-      role: '/static/roles/jungle.svg',
+      role: '/static/roles/mid.svg',
       avatar: '/static/charactersImage/caitlyn.svg'
     },
     {

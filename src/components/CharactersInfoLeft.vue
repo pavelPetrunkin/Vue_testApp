@@ -1,5 +1,8 @@
 <template>
   <div class="modal-container">
+    <LineRoll
+      :role="characters[selectorIndex].role"
+      :selectorIndex="selectorIndex"/>
     <FirstTeamName :teamName="this.firstTeam"/>
     <div class="my-row-avatar-left" v-if="parseInt(this.selectorIndex) === 0">
       <img :src="this.characters[this.selectorIndex].avatar" alt="">
@@ -36,13 +39,15 @@
 
 import FirstTeamName from './FirstTeamName'
 import Skills from './Skills'
+import LineRoll from './LineRoll'
 
 export default {
   name: 'CharactersInfoLeft',
   props: ['characters', 'firstTeam', 'selectorIndex'],
   components: {
     Skills,
-    FirstTeamName
+    FirstTeamName,
+    LineRoll
   },
   methods: {
     checkStats () {

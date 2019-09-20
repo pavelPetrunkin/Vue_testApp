@@ -1,5 +1,5 @@
 <template>
-  <div class="circle">
+  <div :class="'circle' + checkRole()">
     <div>
       <img :src="role"/>
     </div>
@@ -10,12 +10,21 @@
 
 export default {
   name: 'LineRoll',
-  props: ['role'],
+  props: ['role', 'selectorIndex'],
   mounted () {
   },
   computed: {
   },
   methods: {
+    checkRole () {
+      if (this.selectorIndex === undefined) {
+        return ''
+      } else if (parseInt(this.selectorIndex) === 0) {
+        return ' my-row role-modal'
+      } else {
+        return ' other-row role-modal'
+      }
+    }
   }
 }
 </script>
@@ -27,7 +36,6 @@ export default {
     border-radius: 20px;
     width: 36px;
     height: 36px;
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
