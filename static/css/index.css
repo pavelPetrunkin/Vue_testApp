@@ -196,6 +196,49 @@ body {
   left: 9px;
 }
 
+.modal-wrapper .avatars {
+  top: 76px;
+  right: 4px;
+}
+
+.modal-wrapper .modal-container:first-child .avatars {
+  top: 55px;
+}
+
+.modal-wrapper .modal-container:first-child .other-row .avatars {
+  top: 61px;
+  right: 1px;
+}
+
+.modal-wrapper .modal-container:first-child .my-row .avatars {
+  top: 56px;
+  right: 1px;
+}
+
+.modal-wrapper .modal-container:first-child .other-row img:nth-child(1) {
+  top: 165px;
+}
+.modal-wrapper .modal-container:first-child .other-row img:nth-child(2) {
+  top: 115px;
+}
+.modal-wrapper .modal-container:first-child .other-row img:nth-child(3) {
+  top: 65px;
+}
+
+.modal-wrapper .modal-container .other-row img:nth-child(1) {
+  top: 165px;
+}
+.modal-wrapper .modal-container .other-row img:nth-child(2) {
+  top: 115px;
+}
+.modal-wrapper .modal-container .other-row img:nth-child(3) {
+  top: 65px;
+}
+
+.modal-wrapper .modal-container .other-row .avatars {
+  top: 61px;
+}
+
 .modal-wrapper .stats-name p {
   background: #1C1F33;
   width: 82px;
