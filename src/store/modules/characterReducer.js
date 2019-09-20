@@ -150,7 +150,10 @@ let state = {
     name: 'DOLOR SIT AMET'
   },
   isOpenCharactersInfo: false,
-  selectorIndex: ''
+  selectorIndex: '',
+  spellSlot: '/static/spells/spell.svg',
+  itemsSlot: '/static/items/items.svg',
+  spells: [1, 2, 3, 4]
 }
 
 let getters = {

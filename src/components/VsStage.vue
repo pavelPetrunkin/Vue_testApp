@@ -7,6 +7,8 @@
       :secondTeam="secondTeam"
       :open="isOpenCharactersInfo"
       :selectorIndex="selectorIndex"
+      :spellSlot="spellSlot"
+      :itemsSlot="itemsSlot"
     />
     <div id="header-id" class="header">
       <FirstTeamName :teamName="this.firstTeam.name"/>
@@ -57,15 +59,17 @@ function roleSplit (characters) {
 
 export default {
   name: 'VsStage',
-  props: ['characters', 'enemies', 'firstTeam', 'secondTeam', 'isOpenCharactersInfo', 'selectorIndex'],
+  props: [
+    'characters', 'enemies',
+    'firstTeam', 'secondTeam',
+    'isOpenCharactersInfo', 'selectorIndex',
+    'spellSlot', 'itemsSlot'],
   components: {
     CharactersPair,
     LineRoll,
     FirstTeamName,
     SecondTeamName,
     CharactersInfo
-  },
-  mounted () {
   },
   computed: {
     pairs () {

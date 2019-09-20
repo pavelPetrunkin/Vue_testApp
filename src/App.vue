@@ -7,6 +7,8 @@
       :firstTeam="data.firstTeam"
       :isOpenCharactersInfo="data.isOpenCharactersInfo"
       :selectorIndex="data.selectorIndex"
+      :spellSlot="data.spellSlot"
+      :itemsSlot="data.itemsSlot"
     />
     <div id="game-stage-background"></div>
 
@@ -30,7 +32,9 @@ export default {
         firstTeam: this.$store.getters.STATE.firstTeam,
         secondTeam: this.$store.getters.STATE.secondTeam,
         isOpenCharactersInfo: this.$store.getters.STATE.isOpenCharactersInfo,
-        selectorIndex: this.$store.getters.STATE.selectorIndex
+        selectorIndex: this.$store.getters.STATE.selectorIndex,
+        spellSlot: this.$store.getters.STATE.spellSlot,
+        itemsSlot: this.$store.getters.STATE.itemsSlot
       }
     }
   }

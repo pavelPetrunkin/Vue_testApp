@@ -9,6 +9,7 @@
                 :characters="characters"
                 :selectorIndex="selectorIndex"
                 :firstTeam="firstTeam.name"/>
+            <ModalHelp :itemsSlot="itemsSlot" :spellSlot="spellSlot"/>
               <CharactersInfoRight
                 :characters="enemies"
                 :selectorIndex="selectorIndex"
@@ -24,15 +25,19 @@
 
 import CharactersInfoLeft from './CharactersInfoLeft'
 import CharactersInfoRight from './CharactersInfoRight'
+import ModalHelp from './ModalHelp'
 
 export default {
   name: 'CharactersInfo',
-  props: ['open', 'characters', 'enemies', 'firstTeam', 'secondTeam', 'selectorIndex'],
+  props: [
+    'open', 'characters',
+    'enemies', 'firstTeam',
+    'secondTeam', 'selectorIndex',
+    'itemsSlot', 'spellSlot'],
   components: {
     CharactersInfoLeft,
-    CharactersInfoRight
-  },
-  mounted () {
+    CharactersInfoRight,
+    ModalHelp
   },
   methods: {
     closeCharactersInfo () {
