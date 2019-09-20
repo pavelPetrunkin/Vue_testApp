@@ -13,6 +13,22 @@
     <p v-if="parseInt(this.selectorIndex) !== 0" class="other-row-nick-left">{{this.characters[selectorIndex].nick}}</p>
     <Skills :character="characters[selectorIndex]"
             :selectorIndex="selectorIndex"/>
+    <div :class="'stats' + checkStats()">
+      <div>
+        <p>Ranked Stats:</p>
+        <p>{{characters[selectorIndex].rankedWin + '/' + characters[selectorIndex].rankedLose}} - 64.0%</p>
+      </div>
+      <div>
+        <p>Champ Stats:</p>
+        <p>{{characters[selectorIndex].champWin + '/' + characters[selectorIndex].champLose}} - 36.5%</p>
+      </div>
+    </div>
+    <div :class="'stats-name' + checkStatsName()">
+      <p>Main Tag</p>
+      <p>Sub Tag</p>
+      <p>Sub Tag</p>
+      <p>Debuff Tag</p>
+    </div>
   </div>
 </template>
 
@@ -28,7 +44,25 @@ export default {
     Skills,
     FirstTeamName
   },
-  mounted () {
+  methods: {
+    checkStats () {
+      if (this.selectorIndex === undefined) {
+        return ''
+      } else if (parseInt(this.selectorIndex) === 0) {
+        return ' my-row stats-modal'
+      } else {
+        return ' other-row stats-modal'
+      }
+    },
+    checkStatsName () {
+      if (this.selectorIndex === undefined) {
+        return ''
+      } else if (parseInt(this.selectorIndex) === 0) {
+        return ' my-row stats-name-modal'
+      } else {
+        return ' other-row stats-name-modal'
+      }
+    }
   }
 }
 </script>

@@ -13,7 +13,22 @@
     <p v-if="parseInt(this.selectorIndex) !== 0" class="other-nick-row-right">{{this.enemies[selectorIndex].nick}}</p>
     <Skills :character="enemies[selectorIndex]"
             :selectorIndex="selectorIndex"/>
-
+    <div :class="'stats' + checkStats()">
+      <div>
+        <p>Ranked Stats:</p>
+        <p>{{enemies[selectorIndex].rankedWin + '/' + enemies[selectorIndex].rankedLose}} - 64.0%</p>
+      </div>
+      <div>
+        <p>Champ Stats:</p>
+        <p>{{enemies[selectorIndex].champWin + '/' + enemies[selectorIndex].champLose}} - 36.5%</p>
+      </div>
+    </div>
+    <div :class="'stats-name' + checkStatsName()">
+      <p>Main Tag</p>
+      <p>Sub Tag</p>
+      <p>Sub Tag</p>
+      <p>Debuff Tag</p>
+    </div>
   </div>
 </template>
 
@@ -29,7 +44,25 @@ export default {
     SecondTeamName,
     Skills
   },
-  mounted () {
+  methods: {
+    checkStats () {
+      if (this.selectorIndex === undefined) {
+        return ''
+      } else if (parseInt(this.selectorIndex) === 0) {
+        return ' my-row stats-modal'
+      } else {
+        return ' other-row stats-modal'
+      }
+    },
+    checkStatsName () {
+      if (this.selectorIndex === undefined) {
+        return ''
+      } else if (parseInt(this.selectorIndex) === 0) {
+        return ' my-row stats-name-modal'
+      } else {
+        return ' other-row stats-name-modal'
+      }
+    }
   }
 }
 </script>
@@ -44,6 +77,25 @@ export default {
     position: relative;
     top: 10px;
     right: 10px;
+  }
+
+  .stats {
+    color: white;
+  }
+
+  .stats p {
+    margin: 0;
+    font-family: Work Sans,serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #868797;
+  }
+
+  .stats p:last-child {
+    color: #FFFFFF;
+    font-weight: bold;
   }
 
   .modal-container {

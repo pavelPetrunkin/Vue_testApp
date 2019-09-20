@@ -48,7 +48,7 @@
                 <div class="stats">
                   <div>
                     <p>Champ Stats:</p>
-                    <p>50/4 - 36.5%</p>
+                    <p>{{enemy.champWin + '/' + enemy.champLose}} - 36.5%</p>
                   </div>
                   <div>
                     <p>Ranked Stats:</p>

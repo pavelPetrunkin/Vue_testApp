@@ -167,3 +167,50 @@ body {
   justify-content: space-between;
 }
 
+.stats-modal {
+  position: relative;
+  bottom: 6px;
+  right: 9px;
+}
+
+.stats-modal div:first-child {
+  margin-bottom: 10px;
+}
+
+.stats.other-row {
+  top: 24px;
+}
+
+.modal-wrapper > .modal-container:first-child .stats-modal {
+  left: 9px;
+}
+
+.modal-wrapper .stats-name {
+  color: white;
+  position: relative;
+  top: 4px;
+  right: 9px;
+}
+
+.modal-wrapper > .modal-container:first-child .stats-name {
+  left: 9px;
+}
+
+.modal-wrapper .stats-name p {
+  background: #1C1F33;
+  width: 82px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Work Sans, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  height: 20px;
+}
+
+.modal-wrapper .stats-name p {
+  margin-bottom: 10px;
+}
