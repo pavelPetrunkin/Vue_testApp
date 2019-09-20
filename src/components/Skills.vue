@@ -1,5 +1,5 @@
 <template>
-  <div class="skills" id="modal-skills">
+  <div class="skills modal" :id="'modal-skills' + checkIndex()">
     <div class="abilities abilities-row1">
       <img :src="character.ability1" alt="">
       <img :src="character.ability2" alt="">
@@ -10,12 +10,22 @@
     </div>
   </div>
 </template>
-
 <script type="text/javascript">
 
 export default {
   name: 'Skills',
-  props: ['character']
+  props: ['character', 'selectorIndex'],
+  methods: {
+    checkIndex () {
+      if (this.selectorIndex === undefined) {
+        return ''
+      } else if (parseInt(this.selectorIndex) === 0) {
+        return '-my-row'
+      } else {
+        return '-other-row'
+      }
+    }
+  }
 }
 
 </script>

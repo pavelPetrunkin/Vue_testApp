@@ -11,7 +11,8 @@
     </div>
     <p v-if="parseInt(this.selectorIndex) === 0" class="my-row-nick-left">{{this.characters[selectorIndex].nick}}</p>
     <p v-if="parseInt(this.selectorIndex) !== 0" class="other-row-nick-left">{{this.characters[selectorIndex].nick}}</p>
-    <Skills :character="characters[selectorIndex]"/>
+    <Skills :character="characters[selectorIndex]"
+            :selectorIndex="selectorIndex"/>
   </div>
 </template>
 
