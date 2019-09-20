@@ -11,7 +11,7 @@
     <div class="enemy-selector">
       <img :class="'enemy-img' + checkEnemyLine()" :src="enemies[selectorIndex].avatar" />
       <p id="enemy-nick" >{{enemies[selectorIndex].name}}</p>
-      <img class="enemy-selector-img" src="/static/enemy-selector/chevron-down.svg" />
+      <img class="enemy-selector-img" src="/static/enemySelector/chevron-down.svg" />
     </div>
   </div>
 </template>

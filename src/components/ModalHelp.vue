@@ -7,7 +7,6 @@
       tincidunt posuere leo ultrices id.
       <br>Aliquam interdum metus et orci: <img v-for="spell in data.spells" :key="spell" :src="itemsSlot" class="items-info"/>
     </p>
-    <div></div>
   </div>
 </template>
 

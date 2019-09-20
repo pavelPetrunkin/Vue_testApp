@@ -8,17 +8,25 @@
               <CharactersInfoLeft
                 :characters="characters"
                 :selectorIndex="selectorIndex"
-                :firstTeam="firstTeam.name"/>
+                :firstTeam="firstTeam.name"
+              />
             <ModalHelp :itemsSlot="itemsSlot" :spellSlot="spellSlot"/>
             <ModalEnemyHelp
               :spellSlot="spellSlot"
               :enemies="enemies"
               :characters="characters"
-              :selectorIndex="selectorIndex"/>
-              <CharactersInfoRight
-                :characters="enemies"
-                :selectorIndex="selectorIndex"
-                :secondTeam="secondTeam.name"/>
+              :selectorIndex="selectorIndex"
+            />
+            <ModalLineInfo
+              :enemies="enemies"
+              :characters="characters"
+              :selectorIndex="selectorIndex"
+            />
+            <CharactersInfoRight
+              :characters="enemies"
+              :selectorIndex="selectorIndex"
+              :secondTeam="secondTeam.name"
+            />
           </div>
         </div>
       </transition>
@@ -32,6 +40,7 @@ import CharactersInfoLeft from './CharactersInfoLeft'
 import CharactersInfoRight from './CharactersInfoRight'
 import ModalHelp from './ModalHelp'
 import ModalEnemyHelp from './ModalEnemyHelp'
+import ModalLineInfo from './ModalLineInfo'
 
 export default {
   name: 'CharactersInfo',
@@ -44,7 +53,8 @@ export default {
     CharactersInfoLeft,
     CharactersInfoRight,
     ModalHelp,
-    ModalEnemyHelp
+    ModalEnemyHelp,
+    ModalLineInfo
   },
   methods: {
     closeCharactersInfo () {

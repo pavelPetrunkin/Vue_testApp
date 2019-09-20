@@ -11,6 +11,7 @@ let state = {
       rankedLose: 129,
       champWin: 50,
       champLose: 4,
+      lane: 'top',
       role: '/static/roles/top.svg',
       avatar: '/static/charactersImage/nami.svg'
     },
@@ -25,6 +26,7 @@ let state = {
       rankedLose: 129,
       champWin: 50,
       champLose: 4,
+      lane: 'bottom',
       role: '/static/roles/bottom.svg',
       avatar: '/static/charactersImage/missfortune.svg'
     },
@@ -39,6 +41,7 @@ let state = {
       rankedLose: 129,
       champWin: 50,
       champLose: 4,
+      lane: 'jungle',
       role: '/static/roles/jungle.svg',
       avatar: '/static/charactersImage/lux.svg'
     },
@@ -53,6 +56,7 @@ let state = {
       rankedLose: 129,
       champWin: 50,
       champLose: 4,
+      lane: 'mid',
       role: '/static/roles/mid.svg',
       avatar: '/static/charactersImage/leesin.svg'
     },
@@ -67,6 +71,7 @@ let state = {
       rankedLose: 129,
       champWin: 50,
       champLose: 4,
+      lane: 'support',
       role: '/static/roles/support.svg',
       avatar: '/static/charactersImage/khazix.svg'
     }
@@ -83,6 +88,7 @@ let state = {
       rankedLose: 129,
       champWin: 50,
       champLose: 4,
+      lane: 'top',
       role: '/static/roles/top.svg',
       avatar: '/static/charactersImage/jax.svg'
     },
@@ -97,6 +103,7 @@ let state = {
       rankedLose: 129,
       champWin: 50,
       champLose: 4,
+      lane: 'bottom',
       role: '/static/roles/bottom.svg',
       avatar: '/static/charactersImage/heimerdinger.svg'
     },
@@ -111,6 +118,7 @@ let state = {
       rankedLose: 129,
       champWin: 50,
       champLose: 4,
+      lane: 'jungle',
       role: '/static/roles/jungle.svg',
       avatar: '/static/charactersImage/draven.svg'
     },
@@ -125,6 +133,7 @@ let state = {
       rankedLose: 129,
       champWin: 50,
       champLose: 4,
+      lane: 'mid',
       role: '/static/roles/mid.svg',
       avatar: '/static/charactersImage/caitlyn.svg'
     },
@@ -139,6 +148,7 @@ let state = {
       rankedLose: 129,
       champWin: 50,
       champLose: 4,
+      lane: 'support',
       role: '/static/roles/support.svg',
       avatar: '/static/charactersImage/bard.svg'
     }
