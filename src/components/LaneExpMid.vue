@@ -1,16 +1,16 @@
 <template>
-  <div>
+  <div class="mid">
+    <img :src="expMid" alt="exp" />
     <p>
       Mid
     </p>
-    <img :src="expMid" class="lane-exp" alt="exp" />
   </div>
 </template>
 
 <script>
 export default {
   name: 'LaneExpMid',
-  props: {expMid}
+  props: ['expMid']
 }
 
 </script>

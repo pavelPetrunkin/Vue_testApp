@@ -19,11 +19,36 @@ export default {
     LaneExpLate
   },
   mounted () {
-    console.log(this.laneExp)
   }
 }
 </script>
 
 <style>
+
+  .lane-exp {
+    display: flex;
+    height: 38%;
+    flex-basis: 100%;
+    position: relative;
+    justify-content: space-between;
+  }
+
+  .lane-exp img {
+    position: absolute;
+    top: 3px;
+  }
+
+  .lane-exp p {
+    font-family: Work Sans,sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    color: #868797;
+    margin: 0;
+    top: 26px;
+    position: relative;
+  }
 
 </style>

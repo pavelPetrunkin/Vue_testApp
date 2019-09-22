@@ -1,16 +1,15 @@
 <template>
-  <div>
+  <div class="late">
+    <img :src="expLate" alt="exp" />
     <p>
       Late
     </p>
-    <img :src="expLate" class="lane-exp" alt="exp" />
   </div>
 </template>
 
-<script>
+<script type="text/javascript">
 export default {
   name: 'LaneExpLate',
-  props: {expLate}
+  props: ['expLate']
 }
-
 </script>

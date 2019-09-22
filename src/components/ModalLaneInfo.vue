@@ -28,7 +28,7 @@
           </div>
         </div>
         <img :class="'lane-character-img' + checkEnemyLine()" :src="characters[selectorIndex].avatar" />
-        <LaneExp @laneExp="getLaneExp(characters)"></LaneExp>
+        <LaneExp :laneExp="getLaneExp(characters)"></LaneExp>
       </div>
       <div class="lane-enemy-field block">
         <img :class="'lane-enemy-img' + checkEnemyLine()" :src="enemies[selectorIndex].avatar"  alt="cake"/>
@@ -51,8 +51,8 @@
               <img src="/static/runes/rune_small.svg" alt="cake"/>
             </div>
           </div>
-          <LaneExp :laneExp="getLaneExp(enemies)"></LaneExp>
         </div>
+        <LaneExp :laneExp="getLaneExp(enemies)"></LaneExp>
       </div>
     </div>
 
@@ -164,6 +164,7 @@ export default {
   .lane-info-field .block {
     display: flex;
     width: 42%;
+    flex-wrap: wrap;
   }
 
   .lane-enemy-field {
@@ -237,5 +238,55 @@ export default {
   .lane-info-field .pentagon-runes {
     display: flex;
   }
+
+  .lane-character-field .late img {
+    left: 130px;
+  }
+
+  .lane-character-field .late p {
+    right: 21px;
+  }
+
+  .lane-character-field .early img {
+    left: 10px;
+  }
+
+  .lane-character-field .early p {
+    left: 36px;
+  }
+
+  .lane-character-field .mid img {
+    left: 70px;
+  }
+
+  .lane-character-field .mid p {
+    left: 7px;
+  }
+
+  .lane-enemy-field .late img {
+    right: 130px;
+  }
+
+  .lane-enemy-field .late p {
+    right: 38px;
+  }
+
+  .lane-enemy-field .early img {
+    right: 10px;
+  }
+
+  .lane-enemy-field .early p {
+    left: 18px;
+  }
+
+  .lane-enemy-field .mid img {
+    right: 70px;
+  }
+
+  .lane-enemy-field .mid p {
+    right: 11px;
+  }
+
+
 
 </style>

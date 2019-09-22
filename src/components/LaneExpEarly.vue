@@ -1,16 +1,16 @@
 <template>
-  <div>
+  <div class="early">
+    <img  :src="expEarly" alt="exp" />
     <p>
       Early
     </p>
-    <img :src="expEarly" class="lane-exp" alt="exp" />
   </div>
 </template>
 
 <script>
 export default {
   name: 'LaneExpEarly',
-  props: {expEarly}
+  props: ['expEarly']
 }
 
 </script>
