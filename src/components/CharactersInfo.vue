@@ -1,6 +1,6 @@
 <template>
   <div>
-    <modal v-if="open">
+    <div v-if="open">
       <transition name="modal">
         <div class="modal-mask">
           <div @click="closeCharactersInfo" class="outer-close" ></div>
@@ -17,7 +17,7 @@
               :characters="characters"
               :selectorIndex="selectorIndex"
             />
-            <ModalLineInfo
+            <ModalLaneInfo
               :enemies="enemies"
               :characters="characters"
               :selectorIndex="selectorIndex"
@@ -30,7 +30,7 @@
           </div>
         </div>
       </transition>
-    </modal>
+    </div>
   </div>
 </template>
 
@@ -40,7 +40,7 @@ import CharactersInfoLeft from './CharactersInfoLeft'
 import CharactersInfoRight from './CharactersInfoRight'
 import ModalHelp from './ModalHelp'
 import ModalEnemyHelp from './ModalEnemyHelp'
-import ModalLineInfo from './ModalLineInfo'
+import ModalLaneInfo from './ModalLaneInfo'
 
 export default {
   name: 'CharactersInfo',
@@ -54,7 +54,7 @@ export default {
     CharactersInfoRight,
     ModalHelp,
     ModalEnemyHelp,
-    ModalLineInfo
+    ModalLaneInfo
   },
   methods: {
     closeCharactersInfo () {
