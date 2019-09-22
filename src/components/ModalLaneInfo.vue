@@ -8,12 +8,49 @@
     </div>
     <div class="lane-info-field">
       <div class="lane-character-field block">
-        <p class="nick">{{characters[selectorIndex].nick}}</p>
+        <div class="spec-info">
+          <p class="nick">{{characters[selectorIndex].nick}}</p>
+          <div class="runes">
+            <div class="small-runes">
+              <img src="/static/runes/rune_small.svg" alt="cake"/>
+              <img src="/static/runes/rune_small.svg" alt="cake"/>
+              <img src="/static/runes/rune_small.svg" alt="cake"/>
+            </div>
+            <div class="triangle-runes">
+              <PairRunes />
+              <OneRune />
+            </div>
+            <div class="pentagon-runes">
+              <PairRunes />
+              <PairRunes />
+              <OneRune />
+            </div>
+          </div>
+        </div>
         <img :class="'lane-character-img' + checkEnemyLine()" :src="characters[selectorIndex].avatar" />
       </div>
       <div class="lane-enemy-field block">
-        <img :class="'lane-enemy-img' + checkEnemyLine()" :src="enemies[selectorIndex].avatar" />
-        <p class="nick">{{enemies[selectorIndex].nick}}</p>
+        <img :class="'lane-enemy-img' + checkEnemyLine()" :src="enemies[selectorIndex].avatar"  alt="cake"/>
+        <div class="spec-info">
+          <p class="nick">{{enemies[selectorIndex].nick}}</p>
+          <div class="runes">
+
+            <div class="pentagon-runes">
+              <OneRune />
+              <PairRunes />
+              <PairRunes />
+            </div>
+            <div class="triangle-runes">
+              <OneRune />
+              <PairRunes />
+            </div>
+            <div class="small-runes">
+              <img src="/static/runes/rune_small.svg" alt="cake"/>
+              <img src="/static/runes/rune_small.svg" alt="cake"/>
+              <img src="/static/runes/rune_small.svg" alt="cake"/>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -21,9 +58,12 @@
 </template>
 
 <script type="text/javascript">
+import OneRune from './OneRune'
+import PairRunes from './PairRunes'
 
 export default {
   name: 'ModalLaneInfo',
+  components: {PairRunes, OneRune},
   props: ['characters', 'enemies', 'selectorIndex', 'spellSlot', 'itemsSlot'],
   computed: {
     data () {
@@ -31,6 +71,10 @@ export default {
         spells: this.$store.getters.STATE.spells
       }
     }
+  },
+  comments: {
+    PairRunes,
+    OneRune
   },
   methods: {
     checkEnemyLine () {
@@ -84,6 +128,10 @@ export default {
     padding: 0 10px;
   }
 
+  .modal-lane-info > p:first-child {
+    padding-left: 25px;
+  }
+
   .lane-role-selector p {
     margin-right: 20px;
     margin-left: 10px;
@@ -111,10 +159,11 @@ export default {
     font-size: 12px;
     line-height: 14px;
     color: #EAEAEE;
+    margin-bottom: 19px;
   }
 
-  .lane-character-field .nick {
-    padding-right: 11px;
+  .lane-enemy-field .nick {
+    display: flex;
   }
 
   .lane-info-field .block {
@@ -134,6 +183,64 @@ export default {
     display: flex;
     justify-content: space-between;
     width: 100%;
+  }
+
+  .lane-info-field .small-runes {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 32px;
+  }
+
+  .lane-character-field .small-runes {
+    align-items: flex-start;
+  }
+
+  .lane-enemy-field .small-runes {
+    align-items: flex-end;
+  }
+
+  .spec-info {
+    width: 52%;
+  }
+
+  .lane-info-field .pair-runes {
+    display: flex;
+    flex-direction: column;
+    height: 32px;
+    justify-content: space-between;
+  }
+
+  .lane-info-field .runes {
+    display: flex;
+  }
+
+  .lane-enemy-field .runes {
+    justify-content: flex-end;
+  }
+
+  .lane-enemy-field .small-runes {
+    margin-left: 4px;
+  }
+  .lane-character-field .small-runes {
+    margin-right: 4px;
+  }
+  .lane-enemy-field .pair-runes {
+    margin-left: 4px;
+  }
+  .lane-character-field .pair-runes {
+    margin-right: 4px;
+  }
+
+  .lane-character-field .triangle-runes {
+    margin-right: 10px;
+  }
+  .lane-enemy-field .triangle-runes {
+    margin-left: 10px;
+  }
+
+  .lane-info-field .pentagon-runes {
+    display: flex;
   }
 
 </style>
