@@ -12,6 +12,7 @@ let state = {
       champWin: 50,
       champLose: 4,
       lane: 'top',
+      spells: ['/static/spells/spellSlot.svg', '/static/spells/spellSlot.svg', '/static/spells/spellSlot.svg', '/static/spells/spellSlot.svg'],
       laneStageExp: {early: '/static/laneStageExp/late.svg', late: '/static/laneStageExp/early.svg', mid: '/static/laneStageExp/mid.svg'},
       role: '/static/roles/top.svg',
       avatar: '/static/charactersImage/nami.svg'
@@ -28,6 +29,7 @@ let state = {
       champWin: 50,
       champLose: 4,
       lane: 'bottom',
+      spells: ['/static/spells/spellSlot.svg', '/static/spells/spellSlot.svg', '/static/spells/spellSlot.svg', '/static/spells/spellSlot.svg'],
       laneStageExp: {early: '/static/laneStageExp/late.svg', late: '/static/laneStageExp/early.svg', mid: '/static/laneStageExp/mid.svg'},
       role: '/static/roles/bottom.svg',
       avatar: '/static/charactersImage/missfortune.svg'
@@ -44,6 +46,7 @@ let state = {
       champWin: 50,
       champLose: 4,
       lane: 'jungle',
+      spells: ['/static/spells/spellSlot.svg', '/static/spells/spellSlot.svg', '/static/spells/spellSlot.svg', '/static/spells/spellSlot.svg'],
       laneStageExp: {early: '/static/laneStageExp/late.svg', late: '/static/laneStageExp/early.svg', mid: '/static/laneStageExp/mid.svg'},
       role: '/static/roles/jungle.svg',
       avatar: '/static/charactersImage/lux.svg'
@@ -60,6 +63,7 @@ let state = {
       champWin: 50,
       champLose: 4,
       lane: 'mid',
+      spells: ['/static/spells/spellSlot.svg', '/static/spells/spellSlot.svg', '/static/spells/spellSlot.svg', '/static/spells/spellSlot.svg'],
       laneStageExp: {early: '/static/laneStageExp/late.svg', late: '/static/laneStageExp/early.svg', mid: '/static/laneStageExp/mid.svg'},
       role: '/static/roles/mid.svg',
       avatar: '/static/charactersImage/leesin.svg'
@@ -76,6 +80,7 @@ let state = {
       champWin: 50,
       champLose: 4,
       lane: 'support',
+      spells: ['/static/spells/spellSlot.svg', '/static/spells/spellSlot.svg', '/static/spells/spellSlot.svg', '/static/spells/spellSlot.svg'],
       laneStageExp: {early: '/static/laneStageExp/late.svg', late: '/static/laneStageExp/early.svg', mid: '/static/laneStageExp/mid.svg'},
       role: '/static/roles/support.svg',
       avatar: '/static/charactersImage/khazix.svg'
@@ -94,6 +99,7 @@ let state = {
       champWin: 50,
       champLose: 4,
       lane: 'top',
+      spells: ['/static/spells/spellSlot.svg', '/static/spells/spellSlot.svg', '/static/spells/spellSlot.svg', '/static/spells/spellSlot.svg'],
       laneStageExp: {early: '/static/laneStageExp/late2.svg', late: '/static/laneStageExp/early.svg', mid: '/static/laneStageExp/mid.svg'},
       role: '/static/roles/top.svg',
       avatar: '/static/charactersImage/jax.svg'
@@ -110,6 +116,7 @@ let state = {
       champWin: 50,
       champLose: 4,
       lane: 'bottom',
+      spells: ['/static/spells/spellSlot.svg', '/static/spells/spellSlot.svg', '/static/spells/spellSlot.svg', '/static/spells/spellSlot.svg'],
       laneStageExp: {early: '/static/laneStageExp/late.svg', late: '/static/laneStageExp/early.svg', mid: '/static/laneStageExp/mid.svg'},
       role: '/static/roles/bottom.svg',
       avatar: '/static/charactersImage/heimerdinger.svg'

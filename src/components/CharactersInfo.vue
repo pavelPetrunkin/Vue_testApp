@@ -27,6 +27,12 @@
               :selectorIndex="selectorIndex"
               :secondTeam="secondTeam.name"
             />
+            <ModalSkillsInfo
+              :enemies="enemies"
+              :characters="characters"
+              :selectorIndex="selectorIndex"
+              :firstTeam="firstTeam"
+            />
           </div>
         </div>
       </transition>
@@ -41,6 +47,7 @@ import CharactersInfoRight from './CharactersInfoRight'
 import ModalHelp from './ModalHelp'
 import ModalEnemyHelp from './ModalEnemyHelp'
 import ModalLaneInfo from './ModalLaneInfo'
+import ModalSkillsInfo from './ModalSpellsInfo'
 
 export default {
   name: 'CharactersInfo',
@@ -54,7 +61,8 @@ export default {
     CharactersInfoRight,
     ModalHelp,
     ModalEnemyHelp,
-    ModalLaneInfo
+    ModalLaneInfo,
+    ModalSkillsInfo
   },
   methods: {
     closeCharactersInfo () {

@@ -287,6 +287,20 @@ export default {
     right: 11px;
   }
 
+  .lane-enemy-img.other {
+    width: 50px;
+    height: 50px;
+    padding-top: 11px;
+    padding-left: 7px;
+    margin-right: 9px;
+  }
 
+  .lane-character-img.other {
+    width: 50px;
+    height: 50px;
+    padding-top: 11px;
+    padding-right: 7px;
+    margin-left: 9px;
+  }
 
 </style>
