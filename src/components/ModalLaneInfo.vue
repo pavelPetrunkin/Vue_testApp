@@ -28,6 +28,7 @@
           </div>
         </div>
         <img :class="'lane-character-img' + checkEnemyLine()" :src="characters[selectorIndex].avatar" />
+        <LaneExp @laneExp="getLaneExp(characters)"></LaneExp>
       </div>
       <div class="lane-enemy-field block">
         <img :class="'lane-enemy-img' + checkEnemyLine()" :src="enemies[selectorIndex].avatar"  alt="cake"/>
@@ -50,6 +51,7 @@
               <img src="/static/runes/rune_small.svg" alt="cake"/>
             </div>
           </div>
+          <LaneExp :laneExp="getLaneExp(enemies)"></LaneExp>
         </div>
       </div>
     </div>
@@ -60,25 +62,18 @@
 <script type="text/javascript">
 import OneRune from './OneRune'
 import PairRunes from './PairRunes'
+import LaneExp from './LaneExp'
 
 export default {
   name: 'ModalLaneInfo',
-  components: {PairRunes, OneRune},
+  components: {PairRunes, OneRune, LaneExp},
   props: ['characters', 'enemies', 'selectorIndex', 'spellSlot', 'itemsSlot'],
-  computed: {
-    data () {
-      return {
-        spells: this.$store.getters.STATE.spells
-      }
-    }
-  },
-  comments: {
-    PairRunes,
-    OneRune
-  },
   methods: {
     checkEnemyLine () {
       return parseInt(this.selectorIndex) === 0 ? ' first' : ' other'
+    },
+    getLaneExp (player) {
+      return player[this.selectorIndex].laneStageExp
     }
   }
 }

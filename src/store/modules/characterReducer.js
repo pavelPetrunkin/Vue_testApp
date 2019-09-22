@@ -12,6 +12,7 @@ let state = {
       champWin: 50,
       champLose: 4,
       lane: 'top',
+      laneStageExp: {early: '/static/laneStageExp/late.svg', late: '/static/laneStageExp/early.svg', mid: '/static/laneStageExp/mid.svg'},
       role: '/static/roles/top.svg',
       avatar: '/static/charactersImage/nami.svg'
     },
@@ -27,6 +28,7 @@ let state = {
       champWin: 50,
       champLose: 4,
       lane: 'bottom',
+      laneStageExp: {early: '/static/laneStageExp/late.svg', late: '/static/laneStageExp/early.svg', mid: '/static/laneStageExp/mid.svg'},
       role: '/static/roles/bottom.svg',
       avatar: '/static/charactersImage/missfortune.svg'
     },
@@ -42,6 +44,7 @@ let state = {
       champWin: 50,
       champLose: 4,
       lane: 'jungle',
+      laneStageExp: {early: '/static/laneStageExp/late.svg', late: '/static/laneStageExp/early.svg', mid: '/static/laneStageExp/mid.svg'},
       role: '/static/roles/jungle.svg',
       avatar: '/static/charactersImage/lux.svg'
     },
@@ -57,6 +60,7 @@ let state = {
       champWin: 50,
       champLose: 4,
       lane: 'mid',
+      laneStageExp: {early: '/static/laneStageExp/late.svg', late: '/static/laneStageExp/early.svg', mid: '/static/laneStageExp/mid.svg'},
       role: '/static/roles/mid.svg',
       avatar: '/static/charactersImage/leesin.svg'
     },
@@ -72,6 +76,7 @@ let state = {
       champWin: 50,
       champLose: 4,
       lane: 'support',
+      laneStageExp: {early: '/static/laneStageExp/late.svg', late: '/static/laneStageExp/early.svg', mid: '/static/laneStageExp/mid.svg'},
       role: '/static/roles/support.svg',
       avatar: '/static/charactersImage/khazix.svg'
     }
@@ -89,6 +94,7 @@ let state = {
       champWin: 50,
       champLose: 4,
       lane: 'top',
+      laneStageExp: {early: '/static/laneStageExp/late2.svg', late: '/static/laneStageExp/early.svg', mid: '/static/laneStageExp/mid.svg'},
       role: '/static/roles/top.svg',
       avatar: '/static/charactersImage/jax.svg'
     },
@@ -104,6 +110,7 @@ let state = {
       champWin: 50,
       champLose: 4,
       lane: 'bottom',
+      laneStageExp: {early: '/static/laneStageExp/late.svg', late: '/static/laneStageExp/early.svg', mid: '/static/laneStageExp/mid.svg'},
       role: '/static/roles/bottom.svg',
       avatar: '/static/charactersImage/heimerdinger.svg'
     },
@@ -119,6 +126,7 @@ let state = {
       champWin: 50,
       champLose: 4,
       lane: 'jungle',
+      laneStageExp: {early: '/static/laneStageExp/late.svg', late: '/static/laneStageExp/early.svg', mid: '/static/laneStageExp/mid.svg'},
       role: '/static/roles/jungle.svg',
       avatar: '/static/charactersImage/draven.svg'
     },
@@ -134,6 +142,7 @@ let state = {
       champWin: 50,
       champLose: 4,
       lane: 'mid',
+      laneStageExp: {early: '/static/laneStageExp/late.svg', late: '/static/laneStageExp/early.svg', mid: '/static/laneStageExp/mid.svg'},
       role: '/static/roles/mid.svg',
       avatar: '/static/charactersImage/caitlyn.svg'
     },
@@ -149,6 +158,7 @@ let state = {
       champWin: 50,
       champLose: 4,
       lane: 'support',
+      laneStageExp: {early: '/static/laneStageExp/late.svg', late: '/static/laneStageExp/early.svg', mid: '/static/laneStageExp/mid.svg'},
       role: '/static/roles/support.svg',
       avatar: '/static/charactersImage/bard.svg'
     }
