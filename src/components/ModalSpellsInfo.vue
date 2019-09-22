@@ -11,26 +11,17 @@
       <div class="player-spells">
         <img v-for="(spell, i) in characters[selectorIndex].spells" :key="i" :src="spell" />
       </div>
-      <div class="spells-table">
-        <div class="spells-lvl-order">
-          <p v-for="(number, i) in [...Array(18)]" :key="i">
-            {{i+1}}
-          </p>
-        </div>
-      </div>
+      <SpellsGrid />
     </div>
 
   </div>
 </template>
 
 <script type="text/javascript">
-import OneRune from './OneRune'
-import PairRunes from './PairRunes'
-import LaneExp from './LaneExp'
-
+import SpellsGrid from './SpellsGrid'
 export default {
   name: 'ModalSpellsInfo',
-  components: {PairRunes, OneRune, LaneExp},
+  components: {SpellsGrid},
   props: ['characters', 'enemies', 'selectorIndex', 'firstTeam'],
   methods: {
     checkEnemyLine () {
@@ -44,6 +35,34 @@ export default {
 </script>
 
 <style>
+
+  #spells-grid {
+    display: grid;
+    grid-template-rows: repeat(5,1fr);
+    grid-template-columns: repeat(18,1fr);
+    width: 100%;
+    padding-left: 8px;
+    padding-right: 41px;
+    /*grid-gap: 2vw;*/
+  }
+  #grid > div {
+    font-size: 5vw;
+    padding: .5em;
+    background: gold;
+    text-align: center;
+  }
+
+  #spells-grid .lvl-order {
+    font-family: Work Sans,sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 12px;
+    text-align: center;
+    color: #868797;
+    margin: 0;
+  }
+
   .modal-spells-info {
     position: absolute;
     width: 590px;
@@ -117,6 +136,8 @@ export default {
     font-size: 12px;
     line-height: 12px;
     text-align: center;
+    margin-bottom: 0;
+    padding-left: 6px;
     color: #868797;
   }
 
@@ -135,10 +156,6 @@ export default {
     align-items: flex-start;
     padding-left: 25px;
     width: 17px;
-  }
-
-  .modal-spells-info .spells-table {
-    padding-left: 14px;
   }
 
 </style>

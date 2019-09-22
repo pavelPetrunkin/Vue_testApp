@@ -34,7 +34,12 @@ export default {
         isOpenCharactersInfo: this.$store.getters.STATE.isOpenCharactersInfo,
         selectorIndex: this.$store.getters.STATE.selectorIndex,
         spellSlot: this.$store.getters.STATE.spellSlot,
-        itemsSlot: this.$store.getters.STATE.itemsSlot
+        itemsSlot: this.$store.getters.STATE.itemsSlot,
+        lvlSpellsQ: this.$store.getters.STATE.lvlSpellsQ,
+        lvlSpellsR: this.$store.getters.STATE.lvlSpellsR,
+        lvlSpellsW: this.$store.getters.STATE.lvlSpellsW,
+        lvlSpellsE: this.$store.getters.STATE.lvlSpellsE
+
       }
     }
   }

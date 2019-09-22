@@ -30,6 +30,7 @@
         <img :class="'lane-character-img' + checkEnemyLine()" :src="characters[selectorIndex].avatar" />
         <LaneExp :laneExp="getLaneExp(characters)"></LaneExp>
       </div>
+      <img class="fighting-icon" src="/static/fightingIcon/icon.svg" alt="alter" />
       <div class="lane-enemy-field block">
         <img :class="'lane-enemy-img' + checkEnemyLine()" :src="enemies[selectorIndex].avatar"  alt="cake"/>
         <div class="spec-info">
@@ -285,6 +286,10 @@ export default {
 
   .lane-enemy-field .mid p {
     right: 11px;
+  }
+
+  .lane-info-field .fighting-icon {
+    padding-bottom: 22px;
   }
 
   .lane-enemy-img.other {
