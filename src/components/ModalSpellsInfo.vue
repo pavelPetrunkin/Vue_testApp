@@ -11,7 +11,11 @@
       <div class="player-spells">
         <img v-for="(spell, i) in characters[selectorIndex].spells" :key="i" :src="spell" />
       </div>
-      <SpellsGrid />
+      <SpellsGrid
+        :lvlSpellsQ="data.lvlSpellsQ"
+        :lvlSpellsW="data.lvlSpellsW"
+        :lvlSpellsE="data.lvlSpellsE"
+        :lvlSpellsR="data.lvlSpellsR"/>
     </div>
 
   </div>
@@ -29,6 +33,16 @@ export default {
     },
     getLaneExp (player) {
       return player[this.selectorIndex].laneStageExp
+    }
+  },
+  computed: {
+    data () {
+      return {
+        lvlSpellsQ: this.$store.getters.STATE.lvlSpellsQ,
+        lvlSpellsR: this.$store.getters.STATE.lvlSpellsR,
+        lvlSpellsW: this.$store.getters.STATE.lvlSpellsW,
+        lvlSpellsE: this.$store.getters.STATE.lvlSpellsE
+      }
     }
   }
 }

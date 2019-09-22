@@ -13,44 +13,44 @@
 <script type="text/javascript">
 export default {
   name: 'SpellsGrid',
+  props: [
+    'lvlSpellsQ',
+    'lvlSpellsW',
+    'lvlSpellsE',
+    'lvlSpellsR'
+  ],
   data: function () {
     return {
-      spellsQ: [...this.data.lvlSpellsQ],
-      spellsW: [...this.data.lvlSpellsW],
-      spellsE: [...this.data.lvlSpellsE],
-      spellsR: [...this.data.lvlSpellsR]
+      spellsQ: [...this.lvlSpellsQ],
+      spellsW: [...this.lvlSpellsW],
+      spellsE: [...this.lvlSpellsE],
+      spellsR: [...this.lvlSpellsR]
     }
   },
   methods: {
     checkSpellsQ () {
-      return this.spellsQ.forEach((item, i) => {
+      this.spellsQ.forEach((item, i) => {
         item === 1 ? this.spellsQ[i] = '/static/spells/keycodeQ.svg' : this.spellsQ[i] = ''
       })
+      return this.spellsQ
     },
     checkSpellsW () {
-      return this.spellsW.forEach((item, i) => {
+      this.spellsW.forEach((item, i) => {
         item === 1 ? this.spellsW[i] = '/static/spells/keycodeW.svg' : this.spellsW[i] = ''
       })
+      return this.spellsW
     },
     checkSpellsE () {
-      return this.spellsE.forEach((item, i) => {
-        item === 1 ? this.spellsE = '/static/spells/keycodeE.svg' : this.spellsE[i] = ''
+      this.spellsE.forEach((item, i) => {
+        item === 1 ? this.spellsE[i] = '/static/spells/keycodeE.svg' : this.spellsE[i] = ''
       })
+      return this.spellsE
     },
     checkSpellsR () {
-      return this.spellsR.forEach((item, i) => {
+      this.spellsR.forEach((item, i) => {
         item === 1 ? this.spellsR[i] = '/static/spells/keycodeR.svg' : this.spellsR[i] = ''
       })
-    }
-  },
-  computed: {
-    data () {
-      return {
-        lvlSpellsQ: this.$store.getters.STATE.lvlSpellsQ,
-        lvlSpellsW: this.$store.getters.STATE.lvlSpellsW,
-        lvlSpellsE: this.$store.getters.STATE.lvlSpellsE,
-        lvlSpellsR: this.$store.getters.STATE.lvlSpellsR
-      }
+      return this.spellsR
     }
   }
 }
@@ -62,7 +62,10 @@ export default {
     grid-template-columns: repeat(18,1fr);
     width: 100%;
     padding-left: 8px;
-    padding-right: 41px;s
+    padding-right: 41px;
+    grid-gap: 6px;
+    position: relative;
+    top: 1px;
   }
   #grid > div {
     font-size: 5vw;
@@ -80,6 +83,14 @@ export default {
     text-align: center;
     color: #868797;
     margin: 0;
+  }
+
+  #spells-grid .lvl-order {
+    margin: auto auto;
+  }
+
+  #spells-grid img {
+    margin: auto auto;
   }
 
 </style>
