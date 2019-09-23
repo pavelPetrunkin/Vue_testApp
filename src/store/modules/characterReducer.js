@@ -181,10 +181,10 @@ let state = {
   spellSlot: '/static/spells/spell.svg',
   itemsSlot: '/static/items/items.svg',
   spells: [1, 2, 3, 4],
-  lvlSpellsQ: [1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  lvlSpellsE: [1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  lvlSpellsR: [1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  lvlSpellsW: [1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  lvlSpellsQ: [1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0],
+  lvlSpellsE: [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
+  lvlSpellsR: [0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0],
+  lvlSpellsW: [0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0]
 
 }
 
@@ -201,6 +201,9 @@ let mutations = {
   OPEN_CHARACTERS_INFO: (state, payload) => {
     state.isOpenCharactersInfo = payload.open
     state.selectorIndex = payload.index
+  },
+  CHANGE_TEAM: (state, payload) => {
+    state.firstTeam.name = payload
   },
   CLOSE_CHARACTERS_INFO: (state, payload) => {
     state.isOpenCharactersInfo = payload

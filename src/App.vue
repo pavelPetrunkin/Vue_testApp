@@ -51,8 +51,12 @@ export default {
   opacity: 0.95;
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   top: 0;
+}
+body {
+  height: 100vh;
+  background-image: url("/static/charactersImage/bg.svg");
 }
 
 </style>

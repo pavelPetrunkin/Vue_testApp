@@ -97,6 +97,12 @@ export default {
     display: flex;
     justify-content: center;
     height: 140px;
+    padding: 0 252px;
+  }
+
+  .players-pair:hover {
+    background: radial-gradient(circle, #44465D 0%, rgba(68, 70, 93, 0) 100%);
+    cursor: pointer;
   }
 
   .first-player .header {
@@ -341,7 +347,7 @@ export default {
 
   .hidden-hover {
     position: absolute;
-    width: 105rem;
+    width: 100%;
     height: 100%;
     background: linear-gradient(270deg, #44465D 0%, rgba(68, 70, 93, 0) 100%);
     transform: matrix(-1, 0, 0, 1, 0, 0);
