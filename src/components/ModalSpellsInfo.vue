@@ -50,22 +50,6 @@ export default {
 
 <style>
 
-  #spells-grid {
-    display: grid;
-    grid-template-rows: repeat(5,1fr);
-    grid-template-columns: repeat(18,1fr);
-    width: 100%;
-    padding-left: 8px;
-    padding-right: 41px;
-    /*grid-gap: 2vw;*/
-  }
-  #grid > div {
-    font-size: 5vw;
-    padding: .5em;
-    background: gold;
-    text-align: center;
-  }
-
   #spells-grid .lvl-order {
     font-family: Work Sans,sans-serif;
     font-style: normal;

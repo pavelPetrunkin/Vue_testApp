@@ -1,6 +1,5 @@
 body {
   margin: 0;
-  width: 1680px;
 }
 
 .characters-list div:not(:first-child) .first-player {
@@ -69,12 +68,20 @@ body {
   position: absolute;
   width: 344px;
   height: 36px;
-  left: 312px;
+  left: 56px;
   clip-path: polygon(0% 0%, 86% 0%, 96% 100%, 11% 100%);
 }
 
 .modal-container .first-team-name {
   position: absolute;
+}
+
+#header-id .first-team-name {
+  position: relative;
+}
+
+#header-id .second-team-name {
+  position: relative;
 }
 
 .modal-container .first-team-background {

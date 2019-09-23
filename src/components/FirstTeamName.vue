@@ -39,7 +39,7 @@ export default {
   .first-team-title {
     position: absolute;
     bottom: 10px;
-    left: 74px;
+    left: 149px;
   }
 
 </style>

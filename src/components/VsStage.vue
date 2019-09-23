@@ -12,7 +12,7 @@
     />
     <div id="header-id" class="header">
       <FirstTeamName :teamName="this.firstTeam.name"/>
-      <div>
+      <div class="middle-comparison">
         <div class="stage-background"></div>
         <div class="middle-border"></div>
         <div  class="role">
@@ -97,8 +97,8 @@ export default {
 
   .role {
     position: absolute;
-    right: 820px;
-    top: 188px;
+    right: 190px;
+    top: 129px;
     height: 600px;
     display: flex;
     flex-direction: column;
@@ -110,29 +110,34 @@ export default {
     position: absolute;
     width: 381px;
     height: 38px;
-    left: 650px;
-    top: 77px;
+    top: 18px;
     clip-path: polygon(0 0, 100% 0, 90% 100%, 11% 100%);
   }
 
   .header {
     display: flex;
     justify-content: space-between;
-    padding: 59px 284px 0 331px;
+    padding: 59px 16rem 0 16rem;
   }
 
   .characters-list {
     padding: 23px 252px 0 252px;
   }
 
+  .middle-comparison {
+    position: relative;
+    width: 25rem;
+    left: 24px;
+  }
+
   .middle-border {
-    right: 839px;
+    z-index: 1;
+    right: 209px;
     height: 752px;
     width: 2px;
     background: #00000D;
     position: absolute;
-    top: 115px;
-    z-index: 1;
+    top: 56px;
   }
 
   .header h2 {

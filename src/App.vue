@@ -34,7 +34,7 @@ export default {
         isOpenCharactersInfo: this.$store.getters.STATE.isOpenCharactersInfo,
         selectorIndex: this.$store.getters.STATE.selectorIndex,
         spellSlot: this.$store.getters.STATE.spellSlot,
-        itemsSlot: this.$store.getters.STATE.itemsSlot,
+        itemsSlot: this.$store.getters.STATE.itemsSlot
       }
     }
   }
@@ -51,7 +51,7 @@ export default {
   opacity: 0.95;
   position: absolute;
   width: 100%;
-  height: 900px;
+  height: 100%;
   top: 0;
 }
 
