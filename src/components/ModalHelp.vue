@@ -30,13 +30,19 @@ export default {
     position: absolute;
     width: 451px;
     height: 180px;
-    left: 289px;
+    left: 290px;
     top: 112px;
     background: #1C1F33;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+  }
+
+  @media (max-width: 1655px) {
+    .modal-help {
+      left: 262px;
+    }
   }
 
   .spell-slot1 {

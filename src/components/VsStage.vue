@@ -121,7 +121,7 @@ export default {
   }
 
   .characters-list {
-    padding: 23px 252px 0 252px;
+    padding-top: 23px;
   }
 
   .middle-comparison {

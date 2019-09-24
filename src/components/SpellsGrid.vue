@@ -1,16 +1,29 @@
 <template>
   <div id="spells-grid">
-    <p class="lvl-order" v-for="(number, i) in [...Array(18)]" :key="i">
+    <div v-for="(number, i) in [...Array(4)]" :key="`line-${i}`" class="line"></div>
+    <p class="lvl-order" v-for="(number, i) in [...Array(18)]" :key="`lvl-${i}`">
       {{i+1}}
     </p>
-    <div v-for="(spell, i) in checkSpellsQ()"  :key="i" class="first-row">
-      <img :src="spell" alt="" />
+    <div v-for="(spell, i) in checkSpellsQ()"  :key="`Q-${i}`" class="first-row">
+      <img v-show="spell" :src="spell" alt="" />
+      <div v-show="spell" class="q-line skill-line"></div>
       <p class="keycode-spell">{{spell !== '' ? 'Q' : ''}}</p>
     </div>
-    <img v-for="(spell, i) in checkSpellsQ()"  :key="i" :src="spell" alt="" />
-    <img v-for="(spell, i) in checkSpellsW()"  :key="i" :src="spell" alt="" />
-    <img v-for="(spell, i) in checkSpellsE()"  :key="i" :src="spell" alt="" />
-    <img v-for="(spell, i) in checkSpellsR()"  :key="i" :src="spell" alt="" />
+    <div v-for="(spell, i) in checkSpellsW()"  :key="`W-${i}`" class="first-row">
+      <img v-show="spell" :src="spell" alt="" />
+      <div v-show="spell" class="w-line skill-line"></div>
+      <p class="keycode-spell">{{spell !== '' ? 'W' : ''}}</p>
+    </div>
+    <div v-for="(spell, i) in checkSpellsE()"  :key="`E-${i}`" class="first-row">
+      <img v-show="spell" :src="spell" alt="" />
+      <div v-show="spell" class="e-line skill-line"></div>
+      <p class="keycode-spell">{{spell !== '' ? 'E' : ''}}</p>
+    </div>
+    <div v-for="(spell, i) in checkSpellsR()"  :key="`R-${i}`" class="first-row">
+      <img v-show="spell" :src="spell" alt="" />
+      <div v-show="spell" class="r-line skill-line"></div>
+      <p class="keycode-spell">{{spell !== '' ? 'R' : ''}}</p>
+    </div>
   </div>
 </template>
 
@@ -90,7 +103,7 @@ export default {
 <style>
   #spells-grid {
     display: grid;
-    grid-template-rows: repeat(5,1fr);
+    grid-template-rows: repeat(4,1fr);
     grid-template-columns: repeat(18,1fr);
     width: 100%;
     padding-left: 8px;
@@ -98,6 +111,18 @@ export default {
     grid-gap: 6px;
     position: relative;
     top: 1px;
+  }
+  #spells-grid > .line:nth-child(1) {
+    top: 36px;
+  }
+  #spells-grid > .line:nth-child(2) {
+    top: 64px;
+  }
+  #spells-grid > .line:nth-child(3) {
+    top: 89px;
+  }
+  #spells-grid > .line:nth-child(4) {
+    top: 113px;
   }
   #grid > div {
     font-size: 5vw;
@@ -110,8 +135,9 @@ export default {
     color: white;
     margin: 0;
     position: absolute;
-    height: 16px;
-    width: 16px;
+    font-size: 10px;
+    line-height: 12px;
+    font-weight: bold;
   }
 
   #spells-grid .first-row {
@@ -119,6 +145,16 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 2;
+  }
+
+  .line {
+    border-top: 1px dashed #1C1F33;
+    position: absolute;
+    width: calc(100% - 39px);
+    z-index: 1;
+    right: 30px;
+    left: 9px;
   }
 
   #spells-grid .lvl-order {
@@ -130,6 +166,30 @@ export default {
     text-align: center;
     color: #868797;
     margin: 0;
+  }
+
+  #spells-grid .skill-line {
+    position: absolute;
+    background-color: #1C1F33;
+    width: 1px;
+    bottom: 18px;
+  }
+
+  #spells-grid .e-line.skill-line {
+    height: 57px;
+  }
+
+  #spells-grid .w-line.skill-line {
+    height: 31px;
+  }
+
+  #spells-grid .q-line.skill-line {
+    height: 0;
+  }
+
+  #spells-grid .r-line.skill-line {
+    height: 81px;
+    bottom: 16px;
   }
 
   #spells-grid .lvl-order {

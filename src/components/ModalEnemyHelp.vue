@@ -52,6 +52,12 @@ export default {
     align-items: flex-start;
   }
 
+  @media (max-width: 1655px) {
+    .modal-enemy-help {
+      right: 262px;
+    }
+  }
+
   .enemy-selector-img {
     margin-right: 10px;
     margin-left: 19px;

@@ -94,6 +94,12 @@ export default {
     align-items: flex-start;
   }
 
+  @media (max-width: 1655px) {
+    .modal-lane-info {
+      left: 262px;
+    }
+  }
+
   .lane-role-selector p {
     font-family: Work Sans,sans-serif;
     font-style: normal;

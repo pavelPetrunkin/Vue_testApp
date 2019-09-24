@@ -49,10 +49,14 @@ export default {
 #game-stage-background {
   background: linear-gradient(121.91deg, #00000D -0.28%, #1C1F33 100%);
   opacity: 0.95;
-  position: absolute;
+  position: fixed;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   top: 0;
+}
+body {
+  height: 100vh;
+  background-image: url("/static/charactersImage/bg.svg");
 }
 
 </style>
