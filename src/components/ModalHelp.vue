@@ -1,11 +1,11 @@
 <template>
   <div class="modal-help">
     <p>HOW TO START?</p>
-    <p>Lorem ipsum dolor <img class="spell-slot1" :src="spellSlot"/>Q sit amet,
+    <p>Lorem ipsum dolor <img class="spell-slot1" src="../assets/spells/spell.svg"/>Q sit amet,
       consectetur adipiscing elit.
-      Mauris imperdiet <img class="spell-slot2" :src="spellSlot"/>E gravida velit,
+      Mauris imperdiet <img class="spell-slot2" src="../assets/spells/spell.svg"/>E gravida velit,
       tincidunt posuere leo ultrices id.
-      <br>Aliquam interdum metus et orci: <img v-for="spell in data.spells" :key="spell" :src="itemsSlot" class="items-info"/>
+      <br>Aliquam interdum metus et orci: <img v-for="spell in data.spells" :key="spell" src="../assets/items/items.svg" class="items-info"/>
     </p>
   </div>
 </template>
@@ -18,7 +18,7 @@ export default {
   computed: {
     data () {
       return {
-        spells: this.$store.getters.STATE.spells
+        spells: this.$store.getters.spells
       }
     }
   }
@@ -30,7 +30,7 @@ export default {
     position: absolute;
     width: 451px;
     height: 180px;
-    left: 289px;
+    left: 290px;
     top: 112px;
     background: #1C1F33;
     display: flex;
@@ -38,7 +38,11 @@ export default {
     justify-content: flex-start;
     align-items: flex-start;
   }
-
+  @media (max-width: 1655px) {
+    .modal-help {
+      left: 262px;
+    }
+  }
   .spell-slot1 {
     position: relative;
     top: 4px;

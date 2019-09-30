@@ -38,13 +38,11 @@
 </template>
 
 <script type="text/javascript">
-
 import SecondTeamName from './SecondTeamName'
 import Skills from './Skills'
 import LineRoll from './LineRoll'
 import ModalAvatars from './ModalAvatars'
 import ModalRoles from './ModalRoles'
-
 export default {
   name: 'CharactersInfoRight',
   props: ['characters', 'secondTeam', 'selectorIndex'],
@@ -78,52 +76,44 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
   .my-row-avatar-right {
     position: relative;
-    right: 10px;
     bottom: 5px;
+    height: 122px;
+    p {
+      width: 46px;
+      margin: 0 auto;
+      background: black;
+      color: white;
+      position: relative;
+      bottom: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      height: 18px;
+    }
   }
   .other-avatar-right {
     position: relative;
     top: 10px;
-    right: 10px;
   }
 
   .stats {
     color: white;
-  }
-
-  .stats p {
-    margin: 0;
-    font-family: Work Sans,serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 16px;
-    color: #868797;
-  }
-
-  .stats p:last-child {
-    color: #FFFFFF;
-    font-weight: bold;
-  }
-
-  .modal-container {
-    background: black;
-  }
-
-  .my-row-avatar-right p {
-    width: 46px;
-    margin: 0 auto;
-    background: black;
-    color: white;
-    position: relative;
-    bottom: 32px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    height: 18px;
+    p {
+      margin: 0;
+      font-family: Work Sans,serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 16px;
+      color: #868797;
+      &:last-child {
+        color: #FFFFFF;
+        font-weight: bold;
+      }
+    }
   }
 
   .other-avatar-right p {
@@ -154,8 +144,7 @@ export default {
     margin: 0;
     text-align: center;
     position: relative;
-    bottom: 21px;
-    right: 11px;
+    top: 10px;
   }
 
   .other-nick-row-right {
@@ -168,7 +157,6 @@ export default {
     margin: 0;
     text-align: center;
     position: relative;
-    right: 11px;
     top: 9px;
   }
 

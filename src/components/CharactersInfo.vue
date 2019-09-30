@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div v-if="open">
-      <transition name="modal">
+    <transition name="modal">
+      <div v-if="open">
         <div class="modal-mask">
           <div @click="closeCharactersInfo" class="outer-close" ></div>
           <div class="modal-wrapper">
@@ -35,8 +35,8 @@
             />
           </div>
         </div>
-      </transition>
-    </div>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -48,6 +48,7 @@ import ModalHelp from './ModalHelp'
 import ModalEnemyHelp from './ModalEnemyHelp'
 import ModalLaneInfo from './ModalLaneInfo'
 import ModalSkillsInfo from './ModalSpellsInfo'
+import { mapActions } from 'vuex';
 
 export default {
   name: 'CharactersInfo',
@@ -65,14 +66,15 @@ export default {
     ModalSkillsInfo
   },
   methods: {
+    ...mapActions(['CHARACTERS_INFO']),
     closeCharactersInfo () {
-      return this.$store.dispatch('CHARACTERS_INFO', false)
+      return this.CHARACTERS_INFO(false)
     }
   }
 }
 </script>
 
-<style>
+<style scoped lang="scss">
   .modal-mask {
     position: fixed;
     z-index: 9998;
@@ -80,9 +82,7 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, .5);
     display: table;
-    transition: opacity .3s ease;
   }
 
   .modal-wrapper {
@@ -97,8 +97,7 @@ export default {
   }
 
   .modal-container {
-    padding: 20px 30px;
-    background-color: #fff;
+    padding: 20px 45px 20px 25px;
     border-radius: 2px;
     -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
     box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
@@ -108,39 +107,25 @@ export default {
     position: relative;
     z-index: 3;
     height: 789px;
-    width: 181px;
+    width: 170px;
     top: 45px;
+    background: black;
   }
 
   .modal-header h3 {
     margin-top: 0;
     color: #42b983;
   }
-  /*
-   * The following styles are auto-applied to elements with
-   * transition="modal" when their visibility is toggled
-   * by Vue.js.
-   *
-   * You can easily play with the modal transition by editing
-   * these styles.
-   */
 
   .modal-default-button {
     float: right;
   }
 
-  .modal-enter {
-    opacity: 0;
-  }
-
-  .modal-leave-active {
-    opacity: 0;
-  }
-
   .modal-enter .modal-container,
   .modal-leave-active .modal-container {
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
+    -webkit-transform: scaleX(2);
+    transform: scaleX(2);
   }
+
 
 </style>

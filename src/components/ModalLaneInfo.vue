@@ -4,7 +4,7 @@
     <div class="lane-role-selector">
       <img class="lane-role-img" :src="characters[selectorIndex].role" />
       <p>{{(characters[selectorIndex].lane)[0].toLocaleUpperCase() + (characters[selectorIndex].lane).slice(1) }} Lane</p>
-      <img class="lane-enemy-selector-img" src="/static/roleSelector/chevron-down.svg" />
+      <img class="lane-enemy-selector-img" src="../assets/roleSelector/chevron-down.svg" />
     </div>
     <div class="lane-info-field">
       <div class="lane-character-field block">
@@ -12,9 +12,9 @@
           <p class="nick">{{characters[selectorIndex].nick}}</p>
           <div class="runes">
             <div class="small-runes">
-              <img src="/static/runes/rune_small.svg" alt="cake"/>
-              <img src="/static/runes/rune_small.svg" alt="cake"/>
-              <img src="/static/runes/rune_small.svg" alt="cake"/>
+              <img src="../assets/runes/rune_small.svg" alt="cake"/>
+              <img src="../assets/runes/rune_small.svg" alt="cake"/>
+              <img src="../assets/runes/rune_small.svg" alt="cake"/>
             </div>
             <div class="triangle-runes">
               <PairRunes />
@@ -30,7 +30,7 @@
         <img :class="'lane-character-img' + checkEnemyLine()" :src="characters[selectorIndex].avatar" />
         <LaneExp :laneExp="getLaneExp(characters)"></LaneExp>
       </div>
-      <img class="fighting-icon" src="/static/fightingIcon/icon.svg" alt="alter" />
+      <img class="fighting-icon" src="../assets/fightingIcon/icon.svg" alt="alter" />
       <div class="lane-enemy-field block">
         <img :class="'lane-enemy-img' + checkEnemyLine()" :src="enemies[selectorIndex].avatar"  alt="cake"/>
         <div class="spec-info">
@@ -47,9 +47,9 @@
               <PairRunes />
             </div>
             <div class="small-runes">
-              <img src="/static/runes/rune_small.svg" alt="cake"/>
-              <img src="/static/runes/rune_small.svg" alt="cake"/>
-              <img src="/static/runes/rune_small.svg" alt="cake"/>
+              <img src="../assets/runes/rune_small.svg" alt="cake"/>
+              <img src="../assets/runes/rune_small.svg" alt="cake"/>
+              <img src="../assets/runes/rune_small.svg" alt="cake"/>
             </div>
           </div>
         </div>
@@ -80,7 +80,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
   .modal-lane-info {
     position: absolute;
     width: 480px;
@@ -92,6 +92,13 @@ export default {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+
+  }
+
+  @media (max-width: 1655px) {
+    .modal-lane-info {
+      left: 262px;
+    }
   }
 
   .lane-role-selector p {
@@ -155,7 +162,9 @@ export default {
     font-size: 12px;
     line-height: 14px;
     color: #EAEAEE;
-    margin-bottom: 19px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    width: auto;
   }
 
   .lane-enemy-field .nick {
@@ -189,12 +198,8 @@ export default {
     height: 32px;
   }
 
-  .lane-character-field .small-runes {
+  .lane-character-field, .lane-enemy-field .small-runes {
     align-items: flex-start;
-  }
-
-  .lane-enemy-field .small-runes {
-    align-items: flex-end;
   }
 
   .spec-info {
@@ -240,72 +245,71 @@ export default {
     display: flex;
   }
 
-  .lane-character-field .late img {
-    left: 130px;
+  .lane-character-field {
+    .late {
+      p {
+        right: 21px;
+      }
+      img {
+        left: 130px;
+      }
+    }
+    .early {
+      img {
+        left: 10px;
+      }
+      p {
+        left: 36px;
+      }
+    }
+    .mid {
+      img {
+        left: 70px;
+      }
+      p {
+        left: 7px;
+      }
+    }
   }
 
-  .lane-character-field .late p {
-    right: 21px;
-  }
-
-  .lane-character-field .early img {
-    left: 10px;
-  }
-
-  .lane-character-field .early p {
-    left: 36px;
-  }
-
-  .lane-character-field .mid img {
-    left: 70px;
-  }
-
-  .lane-character-field .mid p {
-    left: 7px;
-  }
-
-  .lane-enemy-field .late img {
-    right: 130px;
-  }
-
-  .lane-enemy-field .late p {
-    right: 38px;
-  }
-
-  .lane-enemy-field .early img {
-    right: 10px;
-  }
-
-  .lane-enemy-field .early p {
-    left: 18px;
-  }
-
-  .lane-enemy-field .mid img {
-    right: 70px;
-  }
-
-  .lane-enemy-field .mid p {
-    right: 11px;
+  .lane-enemy-field {
+    .late {
+      img {
+        right: 130px;
+      }
+      p {
+        right: 38px;
+      }
+    }
+    .early {
+      img {
+        right: 10px;
+      }
+      p {
+        left: 18px;
+      }
+    }
+    .mid {
+      img {
+        right: 70px;
+      }
+      p {
+        right: 11px;
+      }
+    }
   }
 
   .lane-info-field .fighting-icon {
     padding-bottom: 22px;
   }
 
-  .lane-enemy-img.other {
-    width: 50px;
-    height: 50px;
-    padding-top: 11px;
-    padding-left: 7px;
-    margin-right: 9px;
+  .lane-enemy-img, .lane-character-img {
+    &.other {
+      width: 50px;
+      height: 50px;
+      padding-top: 10px;
+      padding-left: 8px;
+      margin-right: 6px;
+    }
   }
-
-  .lane-character-img.other {
-    width: 50px;
-    height: 50px;
-    padding-top: 11px;
-    padding-right: 7px;
-    margin-left: 9px;
-  }
-
 </style>

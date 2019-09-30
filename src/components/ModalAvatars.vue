@@ -10,7 +10,7 @@ export default {
   props: ['characters', 'selectorIndex'],
   methods: {
     avatarReverser () {
-      let avatars = []
+      let avatars = [];
       this.characters.forEach((item, i) => {
         if (i !== this.selectorIndex) {
           avatars.push(item.avatar)
@@ -22,32 +22,27 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-
+<style scoped lang="scss">
   .avatars {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
+    img {
+      position: absolute;
+      &:nth-child(1) {
+        top: 150px;
+      }
+      &:nth-child(2) {
+        top: 100px;
+      }
+      &:nth-child(3) {
+        top: 50px;
+      }
+      &:nth-child(4) {
+        top: 0;
+      }
+    }
   }
-
-  .avatars img {
-    position: absolute;
-  }
-
-  .avatars img:nth-child(1) {
-    top: 150px;
-  }
-  .avatars img:nth-child(2) {
-    top: 100px;
-  }
-  .avatars img:nth-child(3) {
-    top: 50px;
-  }
-  .avatars img:nth-child(4) {
-    top: 0;
-  }
-
 </style>

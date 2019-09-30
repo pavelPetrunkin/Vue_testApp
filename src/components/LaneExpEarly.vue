@@ -12,5 +12,4 @@ export default {
   name: 'LaneExpEarly',
   props: ['expEarly']
 }
-
 </script>

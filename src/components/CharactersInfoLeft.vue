@@ -78,50 +78,43 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
   .my-row-avatar-left {
     position: relative;
-    left: 8px;
+    left: -1px;
     bottom: 5px;
+    height: 122px;
+    p {
+      width: 60px;
+      margin: 0 auto;
+      background: black;
+      color: white;
+      position: relative;
+      bottom: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      height: 18px;
+    }
   }
   .other-avatar-left {
     position: relative;
     top: 10px;
-    left: 8px;
+    left: -1px;
+    p {
+      bottom: 17px;
+      margin: 0 auto;
+      background: black;
+      color: white;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      height: 18px;
+    }
   }
-
-  .my-row-avatar-left p {
-    width: 60px;
-    margin: 0 auto;
-    background: black;
-    color: white;
-    position: relative;
-    bottom: 32px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    height: 18px;
-  }
-
-  .modal-container {
-    background: black;
-  }
-
-  .other-avatar-left p {
-    bottom: 17px;
-    margin: 0 auto;
-    background: black;
-    color: white;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    height: 18px;
-  }
-
   .my-row-nick-left {
     font-family: Work Sans,serif;
-    font-style: normal;
     font-weight: bold;
     font-size: 18px;
     line-height: 21px;
@@ -129,14 +122,12 @@ export default {
     margin: 0;
     text-align: center;
     position: relative;
-    bottom: 21px;
-    left: 35px;
+    top: 10px;
+    left: 21px;
     width: 128px;
   }
-
   .other-row-nick-left {
     font-family: Work Sans,serif;
-    font-style: normal;
     font-weight: bold;
     font-size: 18px;
     line-height: 21px;
@@ -148,9 +139,7 @@ export default {
     width: 128px;
     top: 9px;
   }
-
   .modal-body {
     margin: 20px 0;
   }
-
 </style>

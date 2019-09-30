@@ -12,5 +12,4 @@ export default {
   name: 'LaneExpMid',
   props: ['expMid']
 }
-
 </script>

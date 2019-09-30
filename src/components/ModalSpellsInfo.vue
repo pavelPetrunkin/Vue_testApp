@@ -1,54 +1,70 @@
 <template>
   <div class="modal-spells-info">
     <p>YOUR SKILL ORDER</p>
-    <div class="spells-role-selector">
+    <div class="spells-role-selector" @click="showSelector">
       <img class="lane-role-img" :src="characters[selectorIndex].role" />
       <p>{{(characters[selectorIndex].lane)[0].toLocaleUpperCase() + (characters[selectorIndex].lane).slice(1) }}
         Lane: {{this.firstTeam.name[0] + this.firstTeam.name.toLowerCase().slice(1)}}</p>
-      <img class="lane-enemy-selector-img" src="/static/roleSelector/chevron-down.svg" />
+      <img class="lane-enemy-selector-img" src="../assets/roleSelector/chevron-down.svg" />
+      <div :class="[openSelector ? 'selector-wrapper' : 'selector-hide']">
+        <div class="selector-option" @click="event => selectAndClose(event, 'LOREM IPSUM')">
+          LOREM IPSUM
+        </div>
+        <div class="selector-option" @click="event => selectAndClose(event, 'LOREM IPSUM 2')">
+          LOREM IPSUM 2
+        </div>
+      </div>
     </div>
     <div class="spells-info-field">
       <div class="player-spells">
         <img v-for="(spell, i) in characters[selectorIndex].spells" :key="i" :src="spell" />
       </div>
       <SpellsGrid
-        :lvlSpellsQ="data.lvlSpellsQ"
-        :lvlSpellsW="data.lvlSpellsW"
-        :lvlSpellsE="data.lvlSpellsE"
-        :lvlSpellsR="data.lvlSpellsR"/>
+        :lvlSpellsQ="lvlSpellsQ"
+        :lvlSpellsW="lvlSpellsW"
+        :lvlSpellsE="lvlSpellsE"
+        :lvlSpellsR="lvlSpellsR"/>
     </div>
 
   </div>
 </template>
 
 <script type="text/javascript">
-import SpellsGrid from './SpellsGrid'
-export default {
-  name: 'ModalSpellsInfo',
-  components: {SpellsGrid},
-  props: ['characters', 'enemies', 'selectorIndex', 'firstTeam'],
-  methods: {
-    checkEnemyLine () {
-      return parseInt(this.selectorIndex) === 0 ? ' first' : ' other'
-    },
-    getLaneExp (player) {
-      return player[this.selectorIndex].laneStageExp
-    }
-  },
-  computed: {
-    data () {
+  import SpellsGrid from './SpellsGrid'
+  import { mapGetters, mapMutations } from 'vuex'
+  export default {
+    name: 'ModalSpellsInfo',
+    components: {SpellsGrid},
+    props: ['characters', 'enemies', 'selectorIndex', 'firstTeam'],
+    data: function () {
       return {
-        lvlSpellsQ: this.$store.getters.STATE.lvlSpellsQ,
-        lvlSpellsR: this.$store.getters.STATE.lvlSpellsR,
-        lvlSpellsW: this.$store.getters.STATE.lvlSpellsW,
-        lvlSpellsE: this.$store.getters.STATE.lvlSpellsE
+        openSelector: false
       }
+    },
+    methods: {
+      ...mapMutations (['CHANGE_TEAM']),
+      checkEnemyLine () {
+        return parseInt(this.selectorIndex) === 0 ? ' first' : ' other'
+      },
+      getLaneExp (player) {
+        return player[this.selectorIndex].laneStageExp
+      },
+      showSelector () {
+        this.openSelector = true
+      },
+      selectAndClose (event, value) {
+        event.stopPropagation()
+        this.openSelector = false
+        return this.CHANGE_TEAM(value)
+      }
+    },
+    computed: {
+      ...mapGetters(['lvlSpellsQ', 'lvlSpellsR', 'lvlSpellsW', 'lvlSpellsE']),
     }
   }
-}
 </script>
 
-<style>
+<style scoped>
 
   #spells-grid .lvl-order {
     font-family: Work Sans,sans-serif;
@@ -59,6 +75,27 @@ export default {
     text-align: center;
     color: #868797;
     margin: 0;
+  }
+  .selector-hide {
+    display: none;
+  }
+  .selector-wrapper {
+    position: absolute;
+    top: 32px;
+    border: 1px solid aqua;
+    background: #1C1F33;
+    width: 100%;
+    left: 0;
+    z-index: 1000;
+  }
+
+  .selector-option {
+    color: #868797;
+    height: 21px;
+    text-align: left;
+    font-size: 12px;
+    line-height: 21px;
+    padding: 5px;
   }
 
   .modal-spells-info {
@@ -72,6 +109,12 @@ export default {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+  }
+
+  @media (max-width: 1655px) {
+    .modal-spells-info {
+      right: 262px;
+    }
   }
 
   .spells-role-selector p {
@@ -94,6 +137,7 @@ export default {
   }
 
   .spells-role-selector {
+    cursor: pointer;
     position: absolute;
     height: 31px;
     background: #1C1F33;

@@ -1,7 +1,7 @@
 <template>
   <div class="pair-runes">
-    <img src="/static/runes/rune.svg" alt="cake"/>
-    <img src="/static/runes/rune.svg" alt="cake"/>
+    <img src="../assets/runes/rune.svg" alt="rune"/>
+    <img src="../assets/runes/rune.svg" alt="rune"/>
   </div>
 </template>
 
@@ -12,11 +12,3 @@ export default {
   props: ['characters', 'enemies', 'selectorIndex']
 }
 </script>
-
-<style>
-
-  .triangle-runes {
-    display: flex;
-  }
-
-</style>

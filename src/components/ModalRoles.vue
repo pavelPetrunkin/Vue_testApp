@@ -11,10 +11,6 @@
 export default {
   name: 'ModalRoles',
   props: ['characters', 'selectorIndex'],
-  mounted () {
-  },
-  computed: {
-  },
   methods: {
     rolesReverser () {
       let roles = []
@@ -28,21 +24,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-  .circle-roles {
-    border: 2px solid black;
-    border-radius: 20px;
-    width: 36px;
-    height: 36px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-    background: black;
-  }
-
-  .circle-roles div {
-    display: flex;
-  }
-</style>

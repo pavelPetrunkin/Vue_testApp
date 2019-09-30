@@ -10,43 +10,20 @@
 export default {
   name: 'SecondTeamName',
   props: ['teamName'],
-  components: {
-  },
-  mounted () {
-  },
-  computed: {
-  },
-  methods: {
-  }
 }
 </script>
 
 <style scoped>
-
-  .header h2 {
-    font-family: Work Sans,serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 23px;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-    color: #FFFFFF;
-  }
-
   .second-team-background {
     background: #B63129;
     position: absolute;
     width: 328px;
     height: 36px;
-    right: 54px;
+    right: 58px;
     clip-path: polygon(10% 0%, 100% 0%, 88% 100%, 0% 100%);
   }
-
   .second-team-title {
     bottom: 10px;
-    right: 134px;
+    right: 138px;
   }
-
 </style>

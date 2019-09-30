@@ -83,20 +83,28 @@ export default {
   },
   methods: {
     open () {
-      return this.$emit('openModal', {open: true, index: this.index})
+      this.$emit('startAnimation');
+      setTimeout(() => {
+        this.$emit('openModal', {open: true, index: this.index});
+        this.$emit('stopAnimation');
+      }, 500)
+      return;
     }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-
+<style lang="scss">
   .players-pair {
     position: relative;
     display: flex;
     justify-content: center;
     height: 140px;
+    &:hover {
+      background: radial-gradient(circle, #44465D 0%, rgba(68, 70, 93, 0) 100%);
+      cursor: pointer;
+    }
   }
 
   .first-player .header {
@@ -122,10 +130,14 @@ export default {
 
   .avatar {
     display: flex;
+    width: 130px;
+    justify-content: center;
+    transition: all 3s ease-in-out 2s;
   }
 
   .player-info {
     padding-top: 5px;
+    width: 510px;
   }
 
   .nick {
@@ -139,85 +151,96 @@ export default {
     text-align: right;
   }
 
-  .second-player .nick {
-    width: 161px;
-    text-align: left;
-  }
-
   .first-player {
     display: flex;
-    margin-right: 131px;
+    padding-right: 130px;
     z-index: 1;
-    position: relative;
-  }
+    .character-info {
+      justify-content: flex-end;
+    }
+    .stats {
+      display: flex;
+      div:first-child {
+        position: relative;
+        right: 26px;
+      }
 
-  .first-player .stats {
-    display: flex;
+      div:first-child p:last-child {
+        position: relative;
+        left: 6px;
+      }
+
+      div:last-child p:last-child {
+        position: relative;
+        right: 4px;
+      }
+    }
+    .stats-name {
+      justify-content: flex-end;
+      top: 1px;
+    }
+    .stats-info {
+      justify-content: flex-end;
+    }
   }
 
   .second-player {
     display: flex;
     flex-direction: row-reverse;
-    position: relative;
     z-index: 1;
-  }
+    .nick {
+      width: 161px;
+      text-align: left;
+    }
+    .character-info {
+      justify-content: flex-start;
+    }
+    .header {
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      position: relative;
+    }
+    .stats {
+      display: flex;
+      flex-direction: row-reverse;
+      div:first-child {
+        position: relative;
+        left: 26px;
+      }
+      div:last-child {
+        position: relative;
+        left: 6px;
+      }
+    }
+    .stats-info {
+      position: relative;
+      right: -3px;
 
-  .second-player .header {
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-    position: relative;
-  }
-
-  .second-player .stats {
-    display: flex;
-    flex-direction: row-reverse;
-  }
-
-  .second-player .abilities-row1 {
-    position: relative;
-    right: 3px;
-  }
-
-  .second-player .abilities-row2 {
-    position: relative;
-    right: 11px;
-  }
-
-  .first-player .stats-name {
-    justify-content: flex-end;
-    top: 1px;
-  }
-
-  .first-player .abilities-row2 {
-    position: relative;
-    left: 1px;
-  }
-
-  .first-player .abilities-row1 {
-    position: relative;
-    left: 11px;
+    }
   }
 
   .header {
     display: flex;
-  }
-
-  .header p {
-    margin-top: 15px;
-    margin-bottom: 14px;
-    position: relative;
+    p {
+      margin-top: 15px;
+      margin-bottom: 14px;
+      position: relative;
+    }
   }
 
   .skills {
     display: flex;
-    padding-top: 5px;
-  }
-
-  .skills img {
-    background: #00000D;
-    height: 24px;
-    width: 24px;
-    border: 1px solid gray;
+    padding-top: 6px;
+    padding-left: 5px;
+    flex-wrap: wrap;
+    width: 68px;
+    img {
+      background: #00000D;
+      height: 22px;
+      width: 22px;
+      border: 1px solid gray;
+      margin-right: 7px;
+    }
   }
 
   .character-info {
@@ -229,63 +252,26 @@ export default {
     justify-content: flex-end;
   }
 
-  .first-player .stats-info {
-    justify-content: flex-end;
-  }
-
   .stats-info {
     display: flex;
     flex-wrap: wrap;
+    p {
+      margin: 0;
+      font-family: Work Sans,serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 16px;
+      text-align: left;
+      color: #868797;
+    }
   }
 
-  .stats-info p {
-    margin: 0;
-    font-family: Work Sans,serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 16px;
-
-    color: #868797;
-  }
-
-  .second-player .stats-info {
-    position: relative;
-    right: 5px;
-  }
-
-  .stats p:last-child {
-    color: #FFFFFF;
-    font-weight: bold;
-  }
-
-  .stats div:last-child {
-    position: relative;
-    left: 6px;
-  }
-
-  .first-player .stats div:first-child {
-    position: relative;
-    right: 26px;
-  }
-
-  .first-player .stats div:first-child p:last-child {
-    position: relative;
-    left: 2px;
-  }
-
-  .first-player .stats div:last-child p:last-child {
-    position: relative;
-    right: 12px;
-  }
-
-  .stats div:last-child p:first-child {
-    display: flex;
-  }
-
-  .second-player .stats div:first-child {
-    position: relative;
-    left: 25px;
+  .stats {
+    p:last-child {
+      color: #FFFFFF;
+      font-weight: bold;
+    }
   }
 
   .second-player .stats-name {
@@ -295,7 +281,7 @@ export default {
     padding-bottom: 5px;
     left: 5px;
     top: 1px;
-    justify-content: space-around;
+    justify-content: flex-start;
     width: 237px;
   }
 
@@ -304,12 +290,11 @@ export default {
     flex-basis: 100%;
     position: relative;
     padding-bottom: 5px;
-    justify-content: space-around;
+    justify-content: flex-end;
     width: 237px;
   }
 
   .first-player .stats-name p {
-    width: 65px;
     display: flex;
     justify-content: center;
   }
@@ -333,18 +318,19 @@ export default {
     background: #1C1F33;
     height: 20px;
     top: 4px;
-
-    right: 3px;
+    padding: 0 10px 0 9px;
+    margin-right: 10px;
     letter-spacing: -1px;
     word-spacing: 1px;
   }
 
   .hidden-hover {
     position: absolute;
-    width: 105rem;
+    width: 100%;
     height: 100%;
     background: linear-gradient(270deg, #44465D 0%, rgba(68, 70, 93, 0) 100%);
     transform: matrix(-1, 0, 0, 1, 0, 0);
   }
+
 
 </style>

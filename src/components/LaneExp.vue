@@ -18,8 +18,6 @@ export default {
     LaneExpMid,
     LaneExpLate
   },
-  mounted () {
-  }
 }
 </script>
 
