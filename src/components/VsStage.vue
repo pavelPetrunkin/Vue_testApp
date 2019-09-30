@@ -135,6 +135,7 @@ export default {
   .vs-info {
     position: relative;
     z-index: 1;
+    padding-left: 8px;
   }
   .role {
     position: absolute;
