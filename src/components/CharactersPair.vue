@@ -12,12 +12,12 @@
             <div class="stats-info">
               <div class="stats">
                 <div>
-                  <p>Champ Stats:</p>
-                  <p>{{character.champWin + '/' + character.champLose}} - 36.5%</p>
+                  <p class="stats_champ">Champ Stats:</p>
+                  <p class="stats_champ-val">{{character.champWin + '/' + character.champLose}} - 36.5%</p>
                 </div>
                 <div>
-                  <p>Ranked Stats:</p>
-                  <p>{{character.rankedWin + '/' + character.rankedLose}} - 64.0%</p>
+                  <p class="stats_ranked">Ranked Stats:</p>
+                  <p class="stats_ranked-val">{{character.rankedWin + '/' + character.rankedLose}} - 64.0%</p>
                 </div>
               </div>
               <div class="stats-name">
@@ -27,7 +27,7 @@
                 <p>Main Tag</p>
               </div>
             </div>
-            <Skills :character="character" />
+            <Skills :character="character"/>
           </div>
         </div>
         <div class="avatar">
@@ -43,7 +43,7 @@
           </div>
           <div>
             <div class="character-info">
-             <Skills :character="enemy" />
+              <Skills :character="enemy"/>
               <div class="stats-info">
                 <div class="stats">
                   <div>
@@ -87,8 +87,7 @@ export default {
       setTimeout(() => {
         this.$emit('openModal', {open: true, index: this.index});
         this.$emit('stopAnimation');
-      }, 500)
-      return;
+      }, 500);
     }
   }
 }
@@ -164,17 +163,17 @@ export default {
         right: 26px;
       }
 
-      div:first-child p:last-child {
+      .stats_champ-val {
         position: relative;
         left: 6px;
       }
 
-      div:last-child p:last-child {
+      .stats_ranked-val {
         position: relative;
         right: 4px;
       }
 
-      div:last-child p:first-child{
+      .stats_ranked {
         padding-left: 7px;
       }
     }
@@ -253,6 +252,10 @@ export default {
   .stats {
     width: 100%;
     justify-content: flex-end;
+    p:last-child {
+      color: #FFFFFF;
+      font-weight: bold;
+    }
   }
 
   .stats-info {
@@ -267,13 +270,6 @@ export default {
       line-height: 16px;
       text-align: left;
       color: #868797;
-    }
-  }
-
-  .stats {
-    p:last-child {
-      color: #FFFFFF;
-      font-weight: bold;
     }
   }
 
@@ -302,15 +298,11 @@ export default {
     justify-content: center;
   }
 
-  .players-pair:not:first-child {
+  .players-pair:not(:first-child) {
     display: flex;
   }
 
-  .first-player .stats-name p:last-child {
-    color: #FFFFFF;
-  }
-
-  .second-player .stats-name p:last-child {
+  .first-player, .second-player .stats-name p:last-child {
     color: #FFFFFF;
   }
 
@@ -334,6 +326,4 @@ export default {
     background: linear-gradient(270deg, #44465D 0%, rgba(68, 70, 93, 0) 100%);
     transform: matrix(-1, 0, 0, 1, 0, 0);
   }
-
-
 </style>
