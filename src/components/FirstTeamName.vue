@@ -15,14 +15,14 @@ export default {
 <style scoped>
   .first-team-title {
     bottom: 10px;
-    left: 153px;
+    left: 145px;
   }
   .first-team-background {
     background: #0082B1;
     position: absolute;
     width: 344px;
     height: 36px;
-    left: 59px;
+    left: 52px;
     clip-path: polygon(0% 0%, 86% 0%, 96% 100%, 11% 100%);
   }
 </style>

@@ -37,6 +37,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  margin-left: 8px;
 }
 #game-stage-background {
   background: linear-gradient(121.91deg, #00000D -0.28%, #1C1F33 100%);

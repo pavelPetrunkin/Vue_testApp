@@ -174,6 +174,10 @@ export default {
         position: relative;
         right: 4px;
       }
+
+      div:last-child p:first-child{
+        padding-left: 7px;
+      }
     }
     .stats-name {
       justify-content: flex-end;

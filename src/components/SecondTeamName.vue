@@ -19,11 +19,11 @@ export default {
     position: absolute;
     width: 328px;
     height: 36px;
-    right: 58px;
+    right: 50px;
     clip-path: polygon(10% 0%, 100% 0%, 88% 100%, 0% 100%);
   }
   .second-team-title {
     bottom: 10px;
-    right: 138px;
+    right: 130px;
   }
 </style>
